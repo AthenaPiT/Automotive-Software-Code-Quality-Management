@@ -1,0 +1,10 @@
+{
+  "label": "Assurance, Audit & Release",
+  "position": 3,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "description": "Defect escalation, independent QA and audit, release gates and the code quality dashboard."
+  }
+}

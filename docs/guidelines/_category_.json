@@ -1,0 +1,10 @@
+{
+  "label": "Engineering Guidelines",
+  "position": 2,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "description": "Hands-on engineering guidelines: coding rules, static analysis, code review, unit testing, robustness and open-source compliance."
+  }
+}

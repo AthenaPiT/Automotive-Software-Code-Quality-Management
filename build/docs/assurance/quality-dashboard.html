@@ -1,0 +1,534 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-assurance/quality-dashboard" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.2"><title data-rh=true>Software Code Quality Dashboard Specification | Code Quality Management</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:image content=https://codequality.yourdomain.com/img/CodeQuality.png /><meta data-rh=true name=twitter:image content=https://codequality.yourdomain.com/img/CodeQuality.png /><meta data-rh=true property=og:url content=https://codequality.yourdomain.com/docs/assurance/quality-dashboard /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="Software Code Quality Dashboard Specification | Code Quality Management"/><meta data-rh=true name=description content="Requirements for the code quality dashboard: metrics, evaluation, communication and continuous improvement."/><meta data-rh=true property=og:description content="Requirements for the code quality dashboard: metrics, evaluation, communication and continuous improvement."/><link data-rh=true rel=icon href=/img/favicon.png /><link data-rh=true rel=canonical href=https://codequality.yourdomain.com/docs/assurance/quality-dashboard /><link data-rh=true rel=alternate href=https://codequality.yourdomain.com/docs/assurance/quality-dashboard hreflang=en /><link data-rh=true rel=alternate href=https://codequality.yourdomain.com/docs/assurance/quality-dashboard hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://codequality.yourdomain.com/docs/category/assurance-audit--release","name":"Assurance, Audit & Release","position":1},{"@type":"ListItem","item":"https://codequality.yourdomain.com/docs/assurance/quality-dashboard","name":"Quality Dashboard","position":2}]}</script><link rel=stylesheet href=/assets/css/styles.64bfa2f9.css /><script src=/assets/js/runtime~main.62772378.js defer></script><script src=/assets/js/main.ff7524c2.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-3d2")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"dark"),document.documentElement.setAttribute("data-theme-choice",t||"dark")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><link rel=preload as=image href=/img/CodeQuality.png /><div role=region aria-label="Skip to main content"><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/CodeQuality.png alt="Code Quality Management Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"/><img src=/img/CodeQuality.png alt="Code Quality Management Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"/></div><b class="navbar__title text--truncate">Code Quality Management</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/docs>Documentation</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/your-github-username/code-quality-management target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/docs><span class=linkLabel_WmDU>Overview</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/governance--framework><span class=categoryLinkLabel_W154>Governance & Framework</span></a><button aria-label="Collapse sidebar category 'Governance & Framework'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/governance/framework><span class=linkLabel_WmDU>Framework</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/governance/management-procedure><span class=linkLabel_WmDU>Management Procedure</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/engineering-guidelines><span class=categoryLinkLabel_W154>Engineering Guidelines</span></a><button aria-label="Collapse sidebar category 'Engineering Guidelines'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/guidelines/coding-standards-rule-catalogue><span class=linkLabel_WmDU>Coding Standards & Rule Catalogue</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/guidelines/static-analysis-toolchain><span class=linkLabel_WmDU>Static Analysis & Toolchain</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/guidelines/code-review><span class=linkLabel_WmDU>Code Review</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/guidelines/unit-testing><span class=linkLabel_WmDU>Unit Testing</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/guidelines/robustness-verification><span class=linkLabel_WmDU>Robustness Verification</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/guidelines/oss-compliance><span class=linkLabel_WmDU>OSS Compliance</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href=/docs/category/assurance-audit--release><span class=categoryLinkLabel_W154>Assurance, Audit & Release</span></a><button aria-label="Collapse sidebar category 'Assurance, Audit & Release'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/assurance/defect-escalation-deviation><span class=linkLabel_WmDU>Defect Escalation & Deviation</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/assurance/qa-audit-checklist><span class=linkLabel_WmDU>QA & Audit Checklist</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/assurance/release-quality-checklist><span class=linkLabel_WmDU>Release Quality Checklist</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/docs/assurance/quality-dashboard><span class=linkLabel_WmDU>Quality Dashboard</span></a></ul></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/docs/category/assurance-audit--release><span>Assurance, Audit & Release</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>Quality Dashboard</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Software Code Quality Dashboard Specification</h1></header><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=1-purpose>1. Purpose<a href=#1-purpose class=hash-link aria-label="Direct link to 1. Purpose" title="Direct link to 1. Purpose" translate=no>​</a></h2>
+<p>This specification defines the requirements for a Software Code Quality Dashboard used to monitor, evaluate, communicate, and improve software code quality throughout the automotive software development lifecycle.</p>
+<p>The dashboard shall provide a consistent, evidence-based view of:</p>
+<ul>
+<li class="">Code health and maintainability.</li>
+<li class="">Coding-standard compliance and static-analysis findings.</li>
+<li class="">Defects, complexity, duplication, and technical debt.</li>
+<li class="">Unit-test quality and code coverage.</li>
+<li class="">Functional-safety-related software verification evidence.</li>
+<li class="">Cybersecurity weaknesses and secure-coding compliance.</li>
+<li class="">Open-source software (OSS) compliance indicators where relevant.</li>
+<li class="">Quality-gate status, release readiness, trends, and unresolved risks.</li>
+</ul>
+<p>The dashboard supports engineering decisions; it does not replace required safety analyses, cybersecurity analyses, reviews, verification activities, or release approvals.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=2-objectives>2. Objectives<a href=#2-objectives class=hash-link aria-label="Direct link to 2. Objectives" title="Direct link to 2. Objectives" translate=no>​</a></h2>
+<ol>
+<li class="">Provide a single, role-appropriate view of code quality from component to product and program level.</li>
+<li class="">Detect quality regression early through pull-request and continuous-integration checks.</li>
+<li class="">Make quality-gate rules explicit, version-controlled, and auditable.</li>
+<li class="">Link findings to source code, requirements, components, builds, test evidence, and owners.</li>
+<li class="">Distinguish ordinary quality findings from safety- or security-significant findings.</li>
+<li class="">Support trend analysis, corrective action, and continuous improvement.</li>
+<li class="">Produce reproducible evidence for internal assessments, customer reviews, and applicable process assessments.</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=3-scope>3. Scope<a href=#3-scope class=hash-link aria-label="Direct link to 3. Scope" title="Direct link to 3. Scope" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=31-in-scope>3.1 In Scope<a href=#31-in-scope class=hash-link aria-label="Direct link to 3.1 In Scope" title="Direct link to 3.1 In Scope" translate=no>​</a></h3>
+<ul>
+<li class="">C, C++, assembly, Python, Java, Kotlin, Rust, and other project-approved languages.</li>
+<li class="">AUTOSAR Classic and Adaptive software, BSW, RTE, application software, middleware, drivers, bootloaders, diagnostics, and update software.</li>
+<li class="">Model-generated code where the analysis toolchain supports it.</li>
+<li class="">Unit-test source code and test results.</li>
+<li class="">Static analysis, coding-rule checking, code coverage, complexity, duplication, defect tracking, and quality-gate results.</li>
+<li class="">Safety and cybersecurity metadata associated with software elements.</li>
+<li class="">OSS inventory and license/vulnerability status when connected to approved OSS tooling.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=32-out-of-scope>3.2 Out of Scope<a href=#32-out-of-scope class=hash-link aria-label="Direct link to 3.2 Out of Scope" title="Direct link to 3.2 Out of Scope" translate=no>​</a></h3>
+<p>The dashboard is not, by itself:</p>
+<ul>
+<li class="">Proof that a product is safe or secure.</li>
+<li class="">A substitute for ISO 26262 work products or confirmation measures.</li>
+<li class="">A substitute for ISO/SAE 21434 cybersecurity engineering.</li>
+<li class="">A substitute for software requirements traceability, integration testing, system testing, or vehicle validation.</li>
+<li class="">A replacement for the official OSS bill of materials (SBOM), license review, or legal approval.</li>
+<li class="">An automatic release authorization mechanism unless the organization explicitly integrates it with a controlled approval process.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=4-normative-language-and-references>4. Normative Language and References<a href=#4-normative-language-and-references class=hash-link aria-label="Direct link to 4. Normative Language and References" title="Direct link to 4. Normative Language and References" translate=no>​</a></h2>
+<p>The terms <strong>shall</strong>, <strong>should</strong>, and <strong>may</strong> express mandatory, recommended, and optional requirements respectively.</p>
+<p>Tailor this specification against the editions and contractual applicability of the following:</p>
+<ul>
+<li class="">ISO 26262 — Road vehicles, functional safety.</li>
+<li class="">ISO/SAE 21434 — Road vehicles, cybersecurity engineering.</li>
+<li class="">Automotive SPICE (ASPICE) process assessment model and relevant process reference model.</li>
+<li class="">MISRA C and MISRA C++ guidelines, where adopted by the project.</li>
+<li class="">CERT C/C++ secure coding rules, where adopted.</li>
+<li class="">ISO/IEC 5055 or other approved source-code weakness measurement methods, if applicable.</li>
+<li class="">ISO/IEC 5230 (OpenChain) and project OSS policy, where applicable.</li>
+<li class="">ISO/IEC 25010 software product quality model, as a reference for quality characteristics.</li>
+<li class="">Organization-specific software development, configuration management, defect management, and release procedures.</li>
+</ul>
+<p><strong>Important:</strong> This document does not claim that using the dashboard alone demonstrates compliance with any standard. Applicable editions, tailoring decisions, and required work products shall be controlled by the organization.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=5-design-principles>5. Design Principles<a href=#5-design-principles class=hash-link aria-label="Direct link to 5. Design Principles" title="Direct link to 5. Design Principles" translate=no>​</a></h2>
+<ol>
+<li class=""><strong>Risk-based:</strong> Safety- and security-significant findings receive explicit classification and escalation.</li>
+<li class=""><strong>Traceable:</strong> Every displayed result links to its source data and the analyzed revision.</li>
+<li class=""><strong>Reproducible:</strong> Results include tool version, rule-set version, build identifier, and analysis timestamp.</li>
+<li class=""><strong>Comparable:</strong> Metric definitions, exclusions, thresholds, and aggregation rules are centrally governed.</li>
+<li class=""><strong>Actionable:</strong> Every actionable finding has an owner, status, priority, and due date or documented disposition.</li>
+<li class=""><strong>No hidden dilution:</strong> Suppressions, exclusions, waivers, and unscanned code are visible.</li>
+<li class=""><strong>Shift left:</strong> New or worsened findings are checked at change/merge time where technically feasible.</li>
+<li class=""><strong>Separation of concerns:</strong> Safety, cybersecurity, maintainability, test adequacy, and OSS indicators remain distinguishable even when summarized.</li>
+<li class=""><strong>Evidence over color:</strong> Red/amber/green states are always backed by explicit criteria and drill-down evidence.</li>
+<li class=""><strong>Controlled change:</strong> Metric definitions and gates are versioned and approved.</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=6-users-and-responsibilities>6. Users and Responsibilities<a href=#6-users-and-responsibilities class=hash-link aria-label="Direct link to 6. Users and Responsibilities" title="Direct link to 6. Users and Responsibilities" translate=no>​</a></h2>
+<table><thead><tr><th>Role<th>Primary Dashboard Needs<th>Responsibilities<tbody><tr><td>Developer<td>Findings on changed code, rule explanation, remediation guidance<td>Fix findings; justify proposed deviations<tr><td>Technical Lead / Software Architect<td>Component health, complexity, dependencies, technical debt<td>Review design risks and remediation plans<tr><td>Software Quality Assurance (SQA)<td>Gate compliance, trends, overdue actions, evidence completeness<td>Monitor compliance and report exceptions<tr><td>Functional Safety Manager / Safety Engineer<td>Safety-related findings, verification status, safety classifications<td>Assess impact on safety work products and required evidence<tr><td>Cybersecurity Manager / Engineer<td>Vulnerabilities, secure-coding findings, dependency risks<td>Triage cybersecurity issues and approve risk treatment within authority<tr><td>Test / Verification Engineer<td>Coverage, test status, flaky tests, verification gaps<td>Maintain trustworthy test evidence<tr><td>Release Manager / Configuration Manager<td>Baseline quality, unresolved blockers, analyzed revision<td>Ensure release uses the approved baseline<tr><td>Program / Engineering Manager<td>Cross-team trends, risk exposure, resource and closure status<td>Make prioritization and escalation decisions<tr><td>OSS Compliance Owner<td>License, SBOM, provenance, known vulnerability indicators<td>Coordinate OSS policy and license approvals</table>
+<p>Role-based access control (RBAC) shall limit sensitive project, vulnerability, and customer information to authorized users.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=7-dashboard-information-architecture>7. Dashboard Information Architecture<a href=#7-dashboard-information-architecture class=hash-link aria-label="Direct link to 7. Dashboard Information Architecture" title="Direct link to 7. Dashboard Information Architecture" translate=no>​</a></h2>
+<p>The dashboard shall support the following views.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=71-executive--program-overview>7.1 Executive / Program Overview<a href=#71-executive--program-overview class=hash-link aria-label="Direct link to 7.1 Executive / Program Overview" title="Direct link to 7.1 Executive / Program Overview" translate=no>​</a></h3>
+<p>Show:</p>
+<ul>
+<li class="">Overall quality-gate status.</li>
+<li class="">Number of active components and analyzed revisions.</li>
+<li class="">Critical/high findings by category.</li>
+<li class="">Gate pass rate and trend.</li>
+<li class="">Open defects and overdue corrective actions.</li>
+<li class="">Coverage status against project targets.</li>
+<li class="">Safety/security blockers.</li>
+<li class="">Release readiness by software baseline.</li>
+<li class="">Data freshness and analysis completeness.</li>
+</ul>
+<p>The executive summary shall not hide a critical safety or security blocker behind an average score.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=72-project--ecu-overview>7.2 Project / ECU Overview<a href=#72-project--ecu-overview class=hash-link aria-label="Direct link to 7.2 Project / ECU Overview" title="Direct link to 7.2 Project / ECU Overview" translate=no>​</a></h3>
+<p>Show:</p>
+<ul>
+<li class="">Component-level quality status.</li>
+<li class="">Findings by severity, rule family, and lifecycle state.</li>
+<li class="">New versus existing findings.</li>
+<li class="">Code size and analyzed scope.</li>
+<li class="">Unit-test results and coverage.</li>
+<li class="">Complexity and duplication distribution.</li>
+<li class="">Quality-gate history by build or release candidate.</li>
+<li class="">Unapproved waivers and expired waivers.</li>
+<li class="">Unanalyzed or stale components.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=73-component--repository-view>7.3 Component / Repository View<a href=#73-component--repository-view class=hash-link aria-label="Direct link to 7.3 Component / Repository View" title="Direct link to 7.3 Component / Repository View" translate=no>​</a></h3>
+<p>Show:</p>
+<ul>
+<li class="">Repository, branch, commit SHA, build ID, and analysis timestamp.</li>
+<li class="">Language and analyzed file count.</li>
+<li class="">Static-analysis and coding-rule findings.</li>
+<li class="">Changed-code findings versus baseline findings.</li>
+<li class="">Complexity hotspots and duplication.</li>
+<li class="">Unit-test and coverage results.</li>
+<li class="">Defect links and ownership.</li>
+<li class="">Exclusions, generated code, third-party code, and suppressions.</li>
+<li class="">Component-specific thresholds and deviations.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=74-change--pull-request-view>7.4 Change / Pull-Request View<a href=#74-change--pull-request-view class=hash-link aria-label="Direct link to 7.4 Change / Pull-Request View" title="Direct link to 7.4 Change / Pull-Request View" translate=no>​</a></h3>
+<p>Show:</p>
+<ul>
+<li class="">Quality-gate result for the proposed change.</li>
+<li class="">New findings introduced by the change.</li>
+<li class="">Findings resolved by the change.</li>
+<li class="">Changed-line coverage, where supported.</li>
+<li class="">Build and test results.</li>
+<li class="">Policy violations and missing evidence.</li>
+<li class="">Links to findings, source lines, and review records.</li>
+</ul>
+<p>A change gate should prioritize <strong>new or worsened findings</strong> while preventing legacy debt from being silently ignored. Existing debt remains visible and governed by an approved remediation plan.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=75-safety-and-cybersecurity-view>7.5 Safety and Cybersecurity View<a href=#75-safety-and-cybersecurity-view class=hash-link aria-label="Direct link to 7.5 Safety and Cybersecurity View" title="Direct link to 7.5 Safety and Cybersecurity View" translate=no>​</a></h3>
+<p>Show separately:</p>
+<ul>
+<li class="">Safety-related coding-rule violations and associated safety classification.</li>
+<li class="">Findings requiring safety-engineer assessment.</li>
+<li class="">Verification evidence status for safety-related software elements.</li>
+<li class="">Security weaknesses, vulnerability identifiers, exploitability/impact assessment where available, and treatment status.</li>
+<li class="">Open safety/security deviations, approvals, expiry dates, and residual-risk decisions.</li>
+<li class="">Trace links to relevant requirements, analyses, tests, and change records.</li>
+</ul>
+<p>A static-analysis severity score shall not automatically be treated as an ISO 26262 ASIL classification or a cybersecurity risk rating.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=76-oss-compliance-view>7.6 OSS Compliance View<a href=#76-oss-compliance-view class=hash-link aria-label="Direct link to 7.6 OSS Compliance View" title="Direct link to 7.6 OSS Compliance View" translate=no>​</a></h3>
+<p>Where OSS tools are integrated, show:</p>
+<ul>
+<li class="">SBOM generation status and baseline.</li>
+<li class="">Direct and transitive dependency inventory status.</li>
+<li class="">License-policy findings and approval status.</li>
+<li class="">Known vulnerable dependencies and remediation status.</li>
+<li class="">Unidentified packages, provenance gaps, and unsupported components.</li>
+<li class="">Exceptions, approvers, and expiry dates.</li>
+</ul>
+<p>OSS status shall not be represented as “compliant” solely because no vulnerability was reported; license and policy checks are separate from vulnerability scanning.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=77-trend-and-analytics-view>7.7 Trend and Analytics View<a href=#77-trend-and-analytics-view class=hash-link aria-label="Direct link to 7.7 Trend and Analytics View" title="Direct link to 7.7 Trend and Analytics View" translate=no>​</a></h3>
+<p>Show trends by release, sprint, component, team, and finding category:</p>
+<ul>
+<li class="">New finding rate and closure rate.</li>
+<li class="">Defect escape or reopen rate where data is reliable.</li>
+<li class="">Quality-gate pass rate.</li>
+<li class="">Coverage trend.</li>
+<li class="">Technical-debt trend.</li>
+<li class="">Mean/median age of open findings.</li>
+<li class="">Waiver count and expiry trend.</li>
+<li class="">Analysis completeness and freshness.</li>
+</ul>
+<p>Trend comparisons shall account for scope changes, rule-set changes, tool upgrades, and metric-definition changes.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=8-metric-catalogue>8. Metric Catalogue<a href=#8-metric-catalogue class=hash-link aria-label="Direct link to 8. Metric Catalogue" title="Direct link to 8. Metric Catalogue" translate=no>​</a></h2>
+<p>All metrics shall have a documented name, purpose, formula, unit, data source, collection frequency, owner, exclusions, target, and gate usage.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=81-core-metrics>8.1 Core Metrics<a href=#81-core-metrics class=hash-link aria-label="Direct link to 8.1 Core Metrics" title="Direct link to 8.1 Core Metrics" translate=no>​</a></h3>
+<table><thead><tr><th>ID<th>Metric<th>Definition / Formula<th>Unit<th>Typical Use<tbody><tr><td>CQ-001<td>Quality Gate Status<td>Result of all applicable mandatory gate rules<td>Pass / Fail / Waived<td>Merge and release decisions<tr><td>CQ-002<td>Critical Findings<td>Count of open findings classified critical by approved policy<td>Count<td>Immediate escalation<tr><td>CQ-003<td>High Findings<td>Count of open high-severity findings<td>Count<td>Risk prioritization<tr><td>CQ-004<td>New Findings<td>Findings first introduced in the analyzed revision<td>Count<td>Change quality<tr><td>CQ-005<td>Finding Density<td>Open findings / KLOC of analyzed production code<td>Findings/KLOC<td>Trend and comparison<tr><td>CQ-006<td>Rule Compliance<td>Applicable mandatory rule checks passed / total applicable checks × 100<td>%<td>Coding-standard adherence<tr><td>CQ-007<td>Unit Test Pass Rate<td>Passed executed unit tests / total executed unit tests × 100<td>%<td>Test health<tr><td>CQ-008<td>Statement Coverage<td>Executed statements / instrumented executable statements × 100<td>%<td>Test evidence<tr><td>CQ-009<td>Branch Coverage<td>Executed branches / instrumented branches × 100<td>%<td>Test evidence<tr><td>CQ-010<td>Function Coverage<td>Executed functions / instrumented functions × 100<td>%<td>Test evidence<tr><td>CQ-011<td>Complexity<td>Approved complexity measure, e.g. cyclomatic complexity, by function and distribution<td>Numeric / histogram<td>Hotspot identification<tr><td>CQ-012<td>Duplication<td>Duplicated eligible lines / eligible lines × 100<td>%<td>Maintainability<tr><td>CQ-013<td>Open Defect Count<td>Count of unresolved software defects in scope<td>Count<td>Defect management<tr><td>CQ-014<td>Finding Age<td>Current date − first-detected date for an open finding<td>Days<td>Closure discipline<tr><td>CQ-015<td>Remediation SLA Compliance<td>Findings closed within applicable target / findings due in period × 100<td>%<td>Process performance<tr><td>CQ-016<td>Waiver Count<td>Active waivers, grouped by severity, rule, component, and expiry<td>Count<td>Exception control<tr><td>CQ-017<td>Stale Analysis Rate<td>In-scope components without analysis within freshness window / in-scope components × 100<td>%<td>Evidence completeness<tr><td>CQ-018<td>Dependency Risk<td>Count of dependencies with unresolved policy or vulnerability findings<td>Count<td>Supply-chain risk<tr><td>CQ-019<td>OSS License Status<td>Packages with completed policy disposition / packages requiring disposition × 100<td>%<td>OSS governance<tr><td>CQ-020<td>Analysis Scope Completeness<td>Eligible in-scope source units analyzed / total eligible in-scope source units × 100<td>%<td>Trustworthiness</table>
+<p><strong>Metric cautions</strong></p>
+<ul>
+<li class="">KLOC shall be defined consistently (e.g., executable source lines or nonblank, noncomment source lines); do not compare different counting methods.</li>
+<li class="">Coverage percentages shall include the coverage type, test level, configuration, compiler, and build identity.</li>
+<li class="">Test pass rate can be misleading if tests are skipped, filtered, or not executed. Display skipped/disabled tests separately.</li>
+<li class="">Rule compliance shall use the approved rule applicability matrix; not-applicable rules must be recorded rather than silently removed.</li>
+<li class="">Finding density shall not be used alone to rank teams or infer software safety.</li>
+<li class="">Generated code and third-party code shall be included or excluded according to a documented policy, with their scope visible.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=82-optional-metrics>8.2 Optional Metrics<a href=#82-optional-metrics class=hash-link aria-label="Direct link to 8.2 Optional Metrics" title="Direct link to 8.2 Optional Metrics" translate=no>​</a></h3>
+<p>Projects may add:</p>
+<ul>
+<li class="">Static-analysis warning-to-defect conversion rate.</li>
+<li class="">Mutation-testing score.</li>
+<li class="">Flaky-test rate.</li>
+<li class="">Review coverage for changed code.</li>
+<li class="">Mean time to acknowledge and resolve findings.</li>
+<li class="">Defect reopen rate.</li>
+<li class="">Escaped defects by lifecycle phase.</li>
+<li class="">Build reproducibility rate.</li>
+<li class="">Memory-safety or resource-leak finding counts.</li>
+<li class="">Dependency freshness and unsupported-version counts.</li>
+<li class="">Model-to-code consistency or model verification status.</li>
+<li class="">Requirements-to-test traceability completeness, sourced from the requirements/ALM system.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=9-severity-and-priority-model>9. Severity and Priority Model<a href=#9-severity-and-priority-model class=hash-link aria-label="Direct link to 9. Severity and Priority Model" title="Direct link to 9. Severity and Priority Model" translate=no>​</a></h2>
+<p>Severity, priority, safety relevance, and cybersecurity risk shall be distinct fields.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=91-suggested-finding-severity>9.1 Suggested Finding Severity<a href=#91-suggested-finding-severity class=hash-link aria-label="Direct link to 9.1 Suggested Finding Severity" title="Direct link to 9.1 Suggested Finding Severity" translate=no>​</a></h3>
+<table><thead><tr><th>Severity<th>General Meaning<th>Expected Response<tbody><tr><td>Critical<td>Credible potential for severe product, safety, security, or release impact; defined by project policy<td>Immediate triage; block merge/release unless formally resolved or handled under an authorized process<tr><td>High<td>Significant correctness, robustness, security, or maintainability concern<td>Prompt owner assignment and time-bound remediation<tr><td>Medium<td>Meaningful quality concern with bounded impact<td>Planned remediation within agreed SLA<tr><td>Low<td>Minor concern, style issue, or limited impact<td>Fix opportunistically or through planned cleanup<tr><td>Informational<td>Advisory, metric, or non-blocking observation<td>Review when relevant</table>
+<p>Severity definitions shall be calibrated to the project's domain and approved by the responsible quality, safety, and cybersecurity authorities.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=92-additional-required-attributes>9.2 Additional Required Attributes<a href=#92-additional-required-attributes class=hash-link aria-label="Direct link to 9.2 Additional Required Attributes" title="Direct link to 9.2 Additional Required Attributes" translate=no>​</a></h3>
+<p>Each finding should include, where applicable:</p>
+<ul>
+<li class="">Unique finding ID.</li>
+<li class="">Tool and rule ID.</li>
+<li class="">Severity and priority.</li>
+<li class="">Safety relevance and applicable ASIL context (if assessed by authorized personnel).</li>
+<li class="">Cybersecurity relevance and risk status (if assessed).</li>
+<li class="">First detected and last observed timestamps.</li>
+<li class="">Source file, line/range, function, and component.</li>
+<li class="">Introduced-by revision and baseline revision.</li>
+<li class="">Owner and due date.</li>
+<li class="">Lifecycle state.</li>
+<li class="">Linked defect, requirement, test, risk, or change request.</li>
+<li class="">Suppression/waiver rationale and approval.</li>
+<li class="">False-positive disposition and supporting evidence.</li>
+</ul>
+<p>The dashboard shall not infer ASIL, safety classification, or cybersecurity risk solely from a tool rule ID.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=10-quality-gates>10. Quality Gates<a href=#10-quality-gates class=hash-link aria-label="Direct link to 10. Quality Gates" title="Direct link to 10. Quality Gates" translate=no>​</a></h2>
+<p>Quality gates are controlled, automated decision rules evaluated at defined lifecycle points.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=101-gate-types>10.1 Gate Types<a href=#101-gate-types class=hash-link aria-label="Direct link to 10.1 Gate Types" title="Direct link to 10.1 Gate Types" translate=no>​</a></h3>
+<ol>
+<li class=""><strong>Local / pre-commit gate:</strong> Fast checks for formatting, selected coding rules, and obvious defects.</li>
+<li class=""><strong>Pull-request / merge gate:</strong> New findings, build/test status, changed-code coverage, and required reviews.</li>
+<li class=""><strong>Continuous-integration gate:</strong> Full static analysis, coding-rule checks, unit tests, coverage, and data completeness.</li>
+<li class=""><strong>Integration gate:</strong> Cross-component checks, integration-test evidence, interface consistency, and unresolved blocker review.</li>
+<li class=""><strong>Release-candidate gate:</strong> Baseline-level quality status, approved deviations, safety/security evidence, OSS disposition, and reproducibility.</li>
+<li class=""><strong>Maintenance gate:</strong> Regression checks for fixes, backports, and long-term support branches.</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=102-example-gate-policy>10.2 Example Gate Policy<a href=#102-example-gate-policy class=hash-link aria-label="Direct link to 10.2 Example Gate Policy" title="Direct link to 10.2 Example Gate Policy" translate=no>​</a></h3>
+<p>The following is an illustrative baseline and must be tailored; it is not a universal automotive requirement.</p>
+<table><thead><tr><th>Gate Rule<th>Example Acceptance Criterion<th>Default Action<tbody><tr><td>G-01<td>Analysis completed on the exact candidate revision<td>Fail if missing or stale<tr><td>G-02<td>No new critical or high findings in changed production code, unless approved exception process permits otherwise<td>Fail<tr><td>G-03<td>No open finding designated a release blocker by authorized safety/security/release authority<td>Fail<tr><td>G-04<td>Mandatory coding rules pass or have valid, approved deviations<td>Fail<tr><td>G-05<td>Required unit tests pass; skipped/disabled tests are visible and justified<td>Fail on unexplained failure or omission<tr><td>G-06<td>Coverage meets project target for the applicable component and test level<td>Fail or require formal disposition<tr><td>G-07<td>No expired waiver applies to the candidate<td>Fail<tr><td>G-08<td>Required OSS license and vulnerability dispositions are complete<td>Fail for unresolved policy blockers<tr><td>G-09<td>Required analysis scope completeness threshold is met<td>Fail below threshold<tr><td>G-10<td>Required reviews and evidence links are present<td>Fail if mandatory evidence is missing</table>
+<p>Thresholds for coverage, complexity, finding density, and remediation SLA shall be defined per project/component and justified by risk, architecture, verification strategy, and historical baseline.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=103-legacy-debt-and-baseline-policy>10.3 Legacy Debt and Baseline Policy<a href=#103-legacy-debt-and-baseline-policy class=hash-link aria-label="Direct link to 10.3 Legacy Debt and Baseline Policy" title="Direct link to 10.3 Legacy Debt and Baseline Policy" translate=no>​</a></h3>
+<ul>
+<li class="">Establish a controlled baseline of existing findings before enforcing new gates.</li>
+<li class="">Track findings as <strong>new</strong>, <strong>existing</strong>, <strong>changed/worsened</strong>, <strong>resolved</strong>, or <strong>reopened</strong>.</li>
+<li class="">Block new debt according to the approved gate policy.</li>
+<li class="">Manage existing debt through an owned backlog, risk assessment, target date, and periodic review.</li>
+<li class="">Rebaseline only through an approved change with recorded rationale and impact analysis.</li>
+<li class="">Never reset a baseline merely to make metrics appear green.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=11-workflow-and-lifecycle>11. Workflow and Lifecycle<a href=#11-workflow-and-lifecycle class=hash-link aria-label="Direct link to 11. Workflow and Lifecycle" title="Direct link to 11. Workflow and Lifecycle" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=111-data-to-decision-workflow>11.1 Data-to-Decision Workflow<a href=#111-data-to-decision-workflow class=hash-link aria-label="Direct link to 11.1 Data-to-Decision Workflow" title="Direct link to 11.1 Data-to-Decision Workflow" translate=no>​</a></h3>
+<ol>
+<li class="">Developer pushes a change or a scheduled pipeline starts.</li>
+<li class="">CI builds the target configuration and executes approved analysis and tests.</li>
+<li class="">Collectors upload machine-readable results and metadata.</li>
+<li class="">The dashboard validates schema, revision identity, tool version, timestamp, and scope.</li>
+<li class="">Findings are normalized and deduplicated according to governed rules.</li>
+<li class="">Gate engine evaluates applicable rules and produces a versioned decision record.</li>
+<li class="">Findings are assigned to owners and synchronized with the approved defect/work-item system.</li>
+<li class="">Owners triage findings and select remediation, false positive, not applicable, accepted deviation, or other approved disposition.</li>
+<li class="">Fixes are verified in a subsequent analysis and test run.</li>
+<li class="">Quality/Safety/Security/OSS owners review exceptions within their authority.</li>
+<li class="">Release authority reviews the complete candidate evidence package.</li>
+<li class="">Results and decisions are retained according to the organization's record-retention policy.</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=112-finding-lifecycle>11.2 Finding Lifecycle<a href=#112-finding-lifecycle class=hash-link aria-label="Direct link to 11.2 Finding Lifecycle" title="Direct link to 11.2 Finding Lifecycle" translate=no>​</a></h3>
+<p>Suggested states:</p>
+<ul>
+<li class="">New</li>
+<li class="">Triaged</li>
+<li class="">Assigned</li>
+<li class="">In Progress</li>
+<li class="">Resolved / Fixed</li>
+<li class="">Verified</li>
+<li class="">Closed</li>
+<li class="">Reopened</li>
+<li class="">False Positive (approved)</li>
+<li class="">Not Applicable (approved)</li>
+<li class="">Accepted Deviation / Waived (time-bound)</li>
+</ul>
+<p>A finding shall not be considered resolved solely because it disappears from a tool report; the system should verify that the relevant code scope was analyzed successfully.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=113-waiver--deviation-workflow>11.3 Waiver / Deviation Workflow<a href=#113-waiver--deviation-workflow class=hash-link aria-label="Direct link to 11.3 Waiver / Deviation Workflow" title="Direct link to 11.3 Waiver / Deviation Workflow" translate=no>​</a></h3>
+<ol>
+<li class="">Requester creates a waiver with finding/rule ID, affected scope, rationale, impact analysis, and compensating controls.</li>
+<li class="">Relevant technical owner reviews the proposed disposition.</li>
+<li class="">Safety or cybersecurity authority reviews if the finding affects their domain.</li>
+<li class="">SQA checks process compliance and evidence completeness.</li>
+<li class="">Authorized approver accepts, rejects, or requests additional evidence.</li>
+<li class="">Approved waivers record scope, approver, approval date, expiry date, conditions, and linked evidence.</li>
+<li class="">Dashboard alerts before expiry and blocks use of expired waivers where the gate requires it.</li>
+<li class="">Waivers are periodically reviewed and closed when no longer needed.</li>
+</ol>
+<p>No person shall approve a deviation beyond their delegated authority. Waivers shall not bypass legal, contractual, or mandatory safety obligations.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=12-data-architecture-and-integration>12. Data Architecture and Integration<a href=#12-data-architecture-and-integration class=hash-link aria-label="Direct link to 12. Data Architecture and Integration" title="Direct link to 12. Data Architecture and Integration" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=121-logical-architecture>12.1 Logical Architecture<a href=#121-logical-architecture class=hash-link aria-label="Direct link to 12.1 Logical Architecture" title="Direct link to 12.1 Logical Architecture" translate=no>​</a></h3>
+<p>Recommended logical layers:</p>
+<ol>
+<li class=""><strong>Source systems:</strong> Git, code review, CI/CD, static analyzers, unit-test frameworks, coverage tools, defect/ALM systems, OSS/SBOM tools, requirements and test-management tools.</li>
+<li class=""><strong>Collectors and adapters:</strong> Secure ingestion, schema validation, authentication, retries, and source metadata.</li>
+<li class=""><strong>Normalization layer:</strong> Common finding schema, severity mapping, identity/deduplication, repository/component mapping.</li>
+<li class=""><strong>Metric and gate engine:</strong> Metric calculations, policy evaluation, trend snapshots, exception rules.</li>
+<li class=""><strong>Storage layer:</strong> Findings, analysis runs, gate decisions, configuration history, audit logs, and trend data.</li>
+<li class=""><strong>Presentation layer:</strong> Role-based dashboards, drill-downs, reports, and alerts.</li>
+<li class=""><strong>Governance layer:</strong> RBAC, policy versioning, approvals, retention, auditability, and data-quality monitoring.</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=122-data-sources>12.2 Data Sources<a href=#122-data-sources class=hash-link aria-label="Direct link to 12.2 Data Sources" title="Direct link to 12.2 Data Sources" translate=no>​</a></h3>
+<table><thead><tr><th>Data Domain<th>Example Source<th>Required Data<tbody><tr><td>Source/configuration<td>Git or equivalent SCM<td>Repository, branch, commit SHA, tags, file scope<tr><td>Build<td>CI/CD system<td>Build ID, configuration, compiler/toolchain version, status<tr><td>Static analysis<td>Approved analyzer<td>Rule ID, finding ID, location, severity, status<tr><td>Coding standards<td>MISRA/CERT or internal checker<td>Rule applicability, violation, deviation status<tr><td>Testing<td>Unit-test framework<td>Test counts, pass/fail/skip, run identity<tr><td>Coverage<td>Coverage tool<td>Coverage type, numerator/denominator, exclusions<tr><td>Defects<td>ALM/issue tracker<td>Defect ID, state, owner, priority, due date<tr><td>Requirements and verification<td>Requirements/test system<td>Links, verification status, traceability metadata<tr><td>Safety<td>Safety lifecycle tool/process repository<td>Safety relevance, approved assessment, evidence links<tr><td>Cybersecurity<td>Vulnerability/scanning/risk systems<td>Finding reference, risk status, treatment, owner<tr><td>OSS<td>SCA/SBOM tool<td>Package identity, version, license, vulnerability and disposition<tr><td>Organization metadata<td>CMDB/project registry<td>Product, ECU, component, team, owner, release baseline</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=123-minimum-analysis-run-metadata>12.3 Minimum Analysis Run Metadata<a href=#123-minimum-analysis-run-metadata class=hash-link aria-label="Direct link to 12.3 Minimum Analysis Run Metadata" title="Direct link to 12.3 Minimum Analysis Run Metadata" translate=no>​</a></h3>
+<p>Every analysis run shall record:</p>
+<ul>
+<li class="">Product/program and component identifiers.</li>
+<li class="">Repository URL or stable repository ID.</li>
+<li class="">Branch and exact commit SHA.</li>
+<li class="">Build/pipeline ID and build configuration.</li>
+<li class="">Analysis timestamp and tool versions.</li>
+<li class="">Rule-set and policy versions.</li>
+<li class="">Language and analyzed file counts.</li>
+<li class="">Included/excluded scope and reasons.</li>
+<li class="">Analysis status and error summary.</li>
+<li class="">Test/coverage run identifiers where relevant.</li>
+<li class="">Gate policy version and final decision.</li>
+<li class="">Links to raw reports and logs, subject to access controls.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=124-data-integrity-and-freshness>12.4 Data Integrity and Freshness<a href=#124-data-integrity-and-freshness class=hash-link aria-label="Direct link to 12.4 Data Integrity and Freshness" title="Direct link to 12.4 Data Integrity and Freshness" translate=no>​</a></h3>
+<ul>
+<li class="">Results from different revisions shall not be combined without explicit labeling.</li>
+<li class="">Failed or partial analysis shall not be presented as a successful clean result.</li>
+<li class="">Missing data shall be displayed as <strong>Unknown</strong>, <strong>Not Available</strong>, or <strong>Stale</strong>, not as zero.</li>
+<li class="">Duplicate findings shall be merged only under documented, deterministic rules.</li>
+<li class="">Tool/rule-set upgrades shall record a version boundary and, where necessary, trigger a controlled baseline recalculation.</li>
+<li class="">Collector failures shall generate operational alerts and shall not silently bypass mandatory gates.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=13-visualization-and-interaction-requirements>13. Visualization and Interaction Requirements<a href=#13-visualization-and-interaction-requirements class=hash-link aria-label="Direct link to 13. Visualization and Interaction Requirements" title="Direct link to 13. Visualization and Interaction Requirements" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=131-visual-status>13.1 Visual Status<a href=#131-visual-status class=hash-link aria-label="Direct link to 13.1 Visual Status" title="Direct link to 13.1 Visual Status" translate=no>​</a></h3>
+<p>Use a consistent status model:</p>
+<ul>
+<li class=""><strong>Pass:</strong> All mandatory applicable checks pass.</li>
+<li class=""><strong>Fail:</strong> One or more mandatory checks fail.</li>
+<li class=""><strong>Waived / Conditional:</strong> A valid, authorized exception applies; the underlying risk remains visible.</li>
+<li class=""><strong>Unknown:</strong> Required data is absent or invalid.</li>
+<li class=""><strong>Stale:</strong> Data exceeds the approved freshness limit.</li>
+<li class=""><strong>Not Applicable:</strong> Explicitly justified and approved for the given scope.</li>
+</ul>
+<p>Color shall never be the only way to communicate status; include text/icon labels for accessibility.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=132-drill-down>13.2 Drill-Down<a href=#132-drill-down class=hash-link aria-label="Direct link to 13.2 Drill-Down" title="Direct link to 13.2 Drill-Down" translate=no>​</a></h3>
+<p>Users should be able to navigate:
+Program → Product/ECU → Component → Repository/Revision → Finding → Source/Rule/Evidence.</p>
+<p>The dashboard should preserve filters and scope during drill-down. Each summary number shall be traceable to the underlying records used to calculate it.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=133-filtering>13.3 Filtering<a href=#133-filtering class=hash-link aria-label="Direct link to 13.3 Filtering" title="Direct link to 13.3 Filtering" translate=no>​</a></h3>
+<p>Support filters by:</p>
+<ul>
+<li class="">Program, product, ECU, component, repository, branch, release, and revision.</li>
+<li class="">Team, owner, severity, priority, rule family, and lifecycle state.</li>
+<li class="">Safety/cybersecurity relevance and approval status.</li>
+<li class="">New/existing/resolved findings.</li>
+<li class="">Tool, rule-set version, date range, and gate result.</li>
+<li class="">Production/test/generated/third-party code classification.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=134-alerts>13.4 Alerts<a href=#134-alerts class=hash-link aria-label="Direct link to 13.4 Alerts" title="Direct link to 13.4 Alerts" translate=no>​</a></h3>
+<p>Alerts shall be configurable for:</p>
+<ul>
+<li class="">New critical/high finding.</li>
+<li class="">Quality-gate failure.</li>
+<li class="">Failed or stale analysis.</li>
+<li class="">Coverage regression beyond an approved tolerance.</li>
+<li class="">Expiring or expired waiver.</li>
+<li class="">Overdue finding or corrective action.</li>
+<li class="">Unresolved OSS policy blocker.</li>
+<li class="">Missing release evidence.</li>
+</ul>
+<p>Alerts should include context, affected revision, owner, due date, and a direct link to the record. Avoid alert floods through deduplication and configurable grouping.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=14-security-privacy-and-availability>14. Security, Privacy, and Availability<a href=#14-security-privacy-and-availability class=hash-link aria-label="Direct link to 14. Security, Privacy, and Availability" title="Direct link to 14. Security, Privacy, and Availability" translate=no>​</a></h2>
+<p>The dashboard platform shall:</p>
+<ul>
+<li class="">Use organization-approved authentication and RBAC.</li>
+<li class="">Enforce least privilege for projects and sensitive findings.</li>
+<li class="">Protect data in transit and at rest using approved controls.</li>
+<li class="">Keep audit records for policy changes, approvals, waiver updates, and access to sensitive records as required.</li>
+<li class="">Protect tokens and integration credentials using an approved secrets-management mechanism.</li>
+<li class="">Validate and sanitize ingested reports; treat repository text and tool output as untrusted data.</li>
+<li class="">Apply retention and deletion policies to source snippets, reports, and logs.</li>
+<li class="">Support backup, recovery, monitoring, and incident response.</li>
+<li class="">Define availability and recovery objectives according to project criticality.</li>
+<li class="">Avoid storing unnecessary proprietary source code in third-party services without approval.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=15-governance-and-change-control>15. Governance and Change Control<a href=#15-governance-and-change-control class=hash-link aria-label="Direct link to 15. Governance and Change Control" title="Direct link to 15. Governance and Change Control" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=151-metric-ownership>15.1 Metric Ownership<a href=#151-metric-ownership class=hash-link aria-label="Direct link to 15.1 Metric Ownership" title="Direct link to 15.1 Metric Ownership" translate=no>​</a></h3>
+<p>A named owner shall be assigned to every metric, gate, rule mapping, and dashboard view. Ownership includes definition, data quality, target approval, and change history.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=152-policy-change-process>15.2 Policy Change Process<a href=#152-policy-change-process class=hash-link aria-label="Direct link to 15.2 Policy Change Process" title="Direct link to 15.2 Policy Change Process" translate=no>​</a></h3>
+<ol>
+<li class="">Submit a change request describing the reason and affected projects.</li>
+<li class="">Assess impact on current baselines, trends, gates, and release candidates.</li>
+<li class="">Obtain approval from the designated engineering and quality owners; include safety/security/OSS authorities where relevant.</li>
+<li class="">Test the new policy against representative historical data.</li>
+<li class="">Publish a versioned policy with effective date and migration instructions.</li>
+<li class="">Preserve previous versions and decision records.</li>
+<li class="">Communicate changes to affected teams.</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=153-metric-gaming-prevention>15.3 Metric Gaming Prevention<a href=#153-metric-gaming-prevention class=hash-link aria-label="Direct link to 15.3 Metric Gaming Prevention" title="Direct link to 15.3 Metric Gaming Prevention" translate=no>​</a></h3>
+<p>The organization shall prohibit:</p>
+<ul>
+<li class="">Deleting findings or changing severity to improve scores without evidence.</li>
+<li class="">Excluding code solely to improve dashboard status.</li>
+<li class="">Reducing test scope or suppressing failed tests without approval.</li>
+<li class="">Rebaselining without authorization.</li>
+<li class="">Treating waived findings as resolved.</li>
+<li class="">Comparing teams using raw counts without normalizing scope and considering context.</li>
+</ul>
+<p>Metrics are diagnostic and management tools, not standalone measures of individual developer performance.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=16-reporting-and-review-cadence>16. Reporting and Review Cadence<a href=#16-reporting-and-review-cadence class=hash-link aria-label="Direct link to 16. Reporting and Review Cadence" title="Direct link to 16. Reporting and Review Cadence" translate=no>​</a></h2>
+<table><thead><tr><th>Cadence<th>Review<th>Participants<th>Expected Output<tbody><tr><td>Per change<td>PR/merge quality gate<td>Developer, reviewer, CI<td>Pass/fail decision and actionable findings<tr><td>Daily / per CI cycle<td>Build and component health<td>Team, technical lead<td>Triage of new blockers and broken pipelines<tr><td>Weekly<td>Quality trend and overdue actions<td>Team lead, SQA, component owners<td>Action list with owners and due dates<tr><td>Per integration milestone<td>Cross-component quality review<td>Integration lead, SQA, verification<td>Integration risk and closure plan<tr><td>Per release candidate<td>Release quality review<td>Release, SQA, safety, security, OSS owners as applicable<td>Release evidence and disposition of blockers<tr><td>Monthly / quarterly<td>Program-level improvement review<td>Engineering leadership, SQA<td>Trend analysis, systemic actions, resource decisions<tr><td>On policy change<td>Metric/gate review<td>Metric owners and affected authorities<td>Approved versioned policy</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=17-acceptance-criteria-for-dashboard-delivery>17. Acceptance Criteria for Dashboard Delivery<a href=#17-acceptance-criteria-for-dashboard-delivery class=hash-link aria-label="Direct link to 17. Acceptance Criteria for Dashboard Delivery" title="Direct link to 17. Acceptance Criteria for Dashboard Delivery" translate=no>​</a></h2>
+<p>The dashboard implementation shall be accepted only when the following are demonstrated:</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item><input type=checkbox disabled/> <!-- -->All in-scope repositories/components are registered with an accountable owner.</li>
+<li class=task-list-item><input type=checkbox disabled/> <!-- -->Required data sources are integrated or formally recorded as unavailable with an approved plan.</li>
+<li class=task-list-item><input type=checkbox disabled/> <!-- -->Analysis results are bound to exact revisions and build identities.</li>
+<li class=task-list-item><input type=checkbox disabled/> <!-- -->Metric definitions and calculation tests are documented.</li>
+<li class=task-list-item><input type=checkbox disabled/> <!-- -->Quality-gate rules are version-controlled and tested.</li>
+<li class=task-list-item><input type=checkbox disabled/> <!-- -->Missing, stale, partial, and failed analysis states are distinguishable from pass/zero.</li>
+<li class=task-list-item><input type=checkbox disabled/> <!-- -->Users can drill down from summary metrics to findings and evidence.</li>
+<li class=task-list-item><input type=checkbox disabled/> <!-- -->Finding ownership, lifecycle, and due-date handling are operational.</li>
+<li class=task-list-item><input type=checkbox disabled/> <!-- -->Waivers have approvals, scope, rationale, expiry, and audit history.</li>
+<li class=task-list-item><input type=checkbox disabled/> <!-- -->Safety/security-related findings are visible without conflating tool severity with formal risk classification.</li>
+<li class=task-list-item><input type=checkbox disabled/> <!-- -->OSS indicators distinguish license, vulnerability, and inventory completeness.</li>
+<li class=task-list-item><input type=checkbox disabled/> <!-- -->RBAC, audit logging, backup, and retention controls are tested.</li>
+<li class=task-list-item><input type=checkbox disabled/> <!-- -->Reports can reproduce the policy and source-data versions used for a gate decision.</li>
+<li class=task-list-item><input type=checkbox disabled/> <!-- -->Representative failure scenarios have been tested, including collector outage and partial analysis.</li>
+<li class=task-list-item><input type=checkbox disabled/> <!-- -->Users and administrators have received training and operating instructions.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=18-implementation-roadmap>18. Implementation Roadmap<a href=#18-implementation-roadmap class=hash-link aria-label="Direct link to 18. Implementation Roadmap" title="Direct link to 18. Implementation Roadmap" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=phase-1--define-and-baseline>Phase 1 — Define and Baseline<a href=#phase-1--define-and-baseline class=hash-link aria-label="Direct link to Phase 1 — Define and Baseline" title="Direct link to Phase 1 — Define and Baseline" translate=no>​</a></h3>
+<ul>
+<li class="">Identify programs, repositories, components, languages, and owners.</li>
+<li class="">Agree on metric definitions, scope classifications, and severity mapping.</li>
+<li class="">Inventory available analyzers, CI, test, defect, and OSS tools.</li>
+<li class="">Establish the initial legacy-finding baseline.</li>
+<li class="">Approve a minimal quality-gate policy.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=phase-2--minimum-viable-dashboard>Phase 2 — Minimum Viable Dashboard<a href=#phase-2--minimum-viable-dashboard class=hash-link aria-label="Direct link to Phase 2 — Minimum Viable Dashboard" title="Direct link to Phase 2 — Minimum Viable Dashboard" translate=no>​</a></h3>
+<ul>
+<li class="">Integrate SCM, CI, static analysis, unit tests, coverage, and defect management.</li>
+<li class="">Implement program, component, and pull-request views.</li>
+<li class="">Display data freshness and analysis completeness.</li>
+<li class="">Enable gate history, ownership, and basic alerts.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=phase-3--automotive-lifecycle-integration>Phase 3 — Automotive Lifecycle Integration<a href=#phase-3--automotive-lifecycle-integration class=hash-link aria-label="Direct link to Phase 3 — Automotive Lifecycle Integration" title="Direct link to Phase 3 — Automotive Lifecycle Integration" translate=no>​</a></h3>
+<ul>
+<li class="">Add safety and cybersecurity metadata links.</li>
+<li class="">Integrate OSS inventory/SBOM and policy disposition.</li>
+<li class="">Link requirements, tests, changes, and release baselines.</li>
+<li class="">Establish waiver governance and release evidence reports.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=phase-4--optimization>Phase 4 — Optimization<a href=#phase-4--optimization class=hash-link aria-label="Direct link to Phase 4 — Optimization" title="Direct link to Phase 4 — Optimization" translate=no>​</a></h3>
+<ul>
+<li class="">Add trend normalization and cross-release analysis.</li>
+<li class="">Introduce hotspot prioritization and risk-based remediation planning.</li>
+<li class="">Calibrate targets using historical data and engineering judgment.</li>
+<li class="">Automate recurring quality reviews and evidence packages.</li>
+<li class="">Reassess metric validity and unintended incentives periodically.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=19-example-dashboard-layout>19. Example Dashboard Layout<a href=#19-example-dashboard-layout class=hash-link aria-label="Direct link to 19. Example Dashboard Layout" title="Direct link to 19. Example Dashboard Layout" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=program-summary>Program Summary<a href=#program-summary class=hash-link aria-label="Direct link to Program Summary" title="Direct link to Program Summary" translate=no>​</a></h3>
+<table><thead><tr><th>Indicator<th style=text-align:right>Current Value<th>Target / Rule<th>Status<tbody><tr><td>Quality gate<td style=text-align:right>Fail<td>All mandatory checks pass<td>Fail<tr><td>Open critical findings<td style=text-align:right>1<td>0 release blockers<td>Fail<tr><td>Open high findings<td style=text-align:right>7<td>Project-defined threshold<td>Review<tr><td>Unit-test pass rate<td style=text-align:right>98.7%<td>Project target<td>Review<tr><td>Branch coverage<td style=text-align:right>86%<td>Component-specific target<td>Review<tr><td>Active waivers<td style=text-align:right>4<td>All valid and approved<td>Review<tr><td>Analysis scope completeness<td style=text-align:right>99.5%<td>Project minimum<td>Pass<tr><td>OSS policy disposition<td style=text-align:right>100%<td>All required packages reviewed<td>Pass</table>
+<p><em>Illustrative values only. Actual targets and status must be calculated from approved policy and verified source data.</em></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=recommended-charts>Recommended Charts<a href=#recommended-charts class=hash-link aria-label="Direct link to Recommended Charts" title="Direct link to Recommended Charts" translate=no>​</a></h3>
+<ul>
+<li class="">Stacked findings by severity and lifecycle state.</li>
+<li class="">New versus resolved findings by week or sprint.</li>
+<li class="">Coverage trend by component and test level.</li>
+<li class="">Complexity distribution and top hotspots.</li>
+<li class="">Waivers by age, severity, owner, and expiry.</li>
+<li class="">Gate pass rate by build/release.</li>
+<li class="">Analysis completeness and freshness by component.</li>
+<li class="">OSS inventory, license disposition, and vulnerability status.</li>
+</ul>
+<p>Every chart shall show the selected time period, scope, and relevant denominator. Where data or scope changed, the chart should annotate the change.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=20-required-templates>20. Required Templates<a href=#20-required-templates class=hash-link aria-label="Direct link to 20. Required Templates" title="Direct link to 20. Required Templates" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=201-metric-definition-template>20.1 Metric Definition Template<a href=#201-metric-definition-template class=hash-link aria-label="Direct link to 20.1 Metric Definition Template" title="Direct link to 20.1 Metric Definition Template" translate=no>​</a></h3>
+<table><thead><tr><th>Field<th>Description<tbody><tr><td>Metric ID / Name<td>Stable identifier and display name<tr><td>Purpose<td>Decision the metric supports<tr><td>Definition<td>Exact meaning and scope<tr><td>Formula<td>Reproducible calculation<tr><td>Unit<td>Count, %, days, score, etc.<tr><td>Data Sources<td>Systems and fields used<tr><td>Refresh Frequency<td>Event-driven, per build, daily, etc.<tr><td>Owner<td>Accountable role<tr><td>Target / Threshold<td>Approved value and rationale<tr><td>Exclusions<td>Permitted exclusions and approval method<tr><td>Gate Usage<td>Informational, warning, blocking<tr><td>Version / Effective Date<td>Change-control information</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=202-quality-gate-rule-template>20.2 Quality Gate Rule Template<a href=#202-quality-gate-rule-template class=hash-link aria-label="Direct link to 20.2 Quality Gate Rule Template" title="Direct link to 20.2 Quality Gate Rule Template" translate=no>​</a></h3>
+<table><thead><tr><th>Field<th>Description<tbody><tr><td>Gate Rule ID<td>Stable identifier<tr><td>Lifecycle Point<td>PR, CI, integration, release<tr><td>Rule Description<td>What must be true<tr><td>Scope<td>Components, languages, code types<tr><td>Evaluation Logic<td>Exact deterministic rule<tr><td>Data Dependency<td>Required source data<tr><td>Failure Behavior<td>Block, warn, or require review<tr><td>Exception Process<td>Authorized deviation route<tr><td>Owner / Approver<td>Responsible roles<tr><td>Policy Version<td>Version used for evaluation<tr><td>Test Cases<td>Positive, negative, and boundary tests</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=203-finding-record-template>20.3 Finding Record Template<a href=#203-finding-record-template class=hash-link aria-label="Direct link to 20.3 Finding Record Template" title="Direct link to 20.3 Finding Record Template" translate=no>​</a></h3>
+<table><thead><tr><th>Field<th>Example / Requirement<tbody><tr><td>Finding ID<td>Stable unique ID<tr><td>Product / Component<td>Controlled identifiers<tr><td>Repository / Revision<td>Exact repository and commit SHA<tr><td>Source Location<td>File, line/range, symbol<tr><td>Tool / Rule<td>Tool version and rule identifier<tr><td>Severity / Priority<td>Approved mappings<tr><td>Safety / Security Context<td>Assessment and evidence link, if applicable<tr><td>Status / Owner<td>Current lifecycle state and accountable person<tr><td>First Seen / Last Seen<td>Timestamps<tr><td>Due Date<td>Based on approved remediation policy<tr><td>Related Work Item<td>Defect, change, requirement, test<tr><td>Disposition<td>Fixed, false positive, N/A, waiver, etc.<tr><td>Approval / Expiry<td>Required for controlled exceptions</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=204-waiver--deviation-template>20.4 Waiver / Deviation Template<a href=#204-waiver--deviation-template class=hash-link aria-label="Direct link to 20.4 Waiver / Deviation Template" title="Direct link to 20.4 Waiver / Deviation Template" translate=no>​</a></h3>
+<ul>
+<li class="">Waiver ID:</li>
+<li class="">Finding/rule ID:</li>
+<li class="">Product/component/repository/revision scope:</li>
+<li class="">Requester and date:</li>
+<li class="">Technical rationale:</li>
+<li class="">Impact analysis:</li>
+<li class="">Safety impact assessment, if applicable:</li>
+<li class="">Cybersecurity impact assessment, if applicable:</li>
+<li class="">Compensating controls:</li>
+<li class="">Verification evidence:</li>
+<li class="">Residual risk and acceptance rationale:</li>
+<li class="">Required approvers:</li>
+<li class="">Decision and decision date:</li>
+<li class="">Conditions and limitations:</li>
+<li class="">Expiry date:</li>
+<li class="">Review date:</li>
+<li class="">Closure evidence:</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=21-operational-risks-and-controls>21. Operational Risks and Controls<a href=#21-operational-risks-and-controls class=hash-link aria-label="Direct link to 21. Operational Risks and Controls" title="Direct link to 21. Operational Risks and Controls" translate=no>​</a></h2>
+<table><thead><tr><th>Risk<th>Potential Impact<th>Control<tbody><tr><td>Incomplete source ingestion<td>False confidence in quality<td>Scope-completeness metric and explicit unknown state<tr><td>Stale analysis<td>Wrong release decision<td>Freshness gate and revision binding<tr><td>Tool/rule-set drift<td>Misleading trend<td>Version metadata and controlled recalculation<tr><td>Severity mapping inconsistency<td>Incorrect prioritization<td>Governed cross-tool mapping and periodic calibration<tr><td>Excessive false positives<td>Reduced trust and ignored alerts<td>Triage process, tuning under change control<tr><td>Uncontrolled suppressions<td>Hidden defects<td>Audited suppression/waiver workflow<tr><td>Metric gaming<td>Poor decisions and quality erosion<td>Governance, denominator visibility, audits<tr><td>Safety/security misclassification<td>Risk overlooked or overstated<td>Authorized domain review; no automatic ASIL/risk inference<tr><td>Dependency inventory gaps<td>OSS exposure not visible<td>SBOM completeness and provenance checks<tr><td>Dashboard outage<td>Delayed quality decisions<td>Monitoring, recovery plan, and defined fallback procedure</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=22-final-requirements-summary>22. Final Requirements Summary<a href=#22-final-requirements-summary class=hash-link aria-label="Direct link to 22. Final Requirements Summary" title="Direct link to 22. Final Requirements Summary" translate=no>​</a></h2>
+<p>A compliant implementation of this specification shall:</p>
+<ol>
+<li class="">Provide traceable quality views from program to source finding.</li>
+<li class="">Use explicit, versioned metric definitions and quality gates.</li>
+<li class="">Distinguish critical safety/security blockers from general code-health metrics.</li>
+<li class="">Bind every result to the analyzed revision and tool/policy versions.</li>
+<li class="">Expose stale, missing, partial, excluded, and waived data.</li>
+<li class="">Support controlled finding triage, remediation, verification, and waiver management.</li>
+<li class="">Integrate relevant test, defect, safety, cybersecurity, and OSS evidence.</li>
+<li class="">Protect sensitive engineering information and preserve auditability.</li>
+<li class="">Provide actionable trends and role-appropriate reporting.</li>
+<li class="">Be tailored and approved for each project's standards, risk profile, toolchain, and contractual obligations.</li>
+</ol>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=appendix-a--suggested-project-specific-decisions>Appendix A — Suggested Project-Specific Decisions<a href=#appendix-a--suggested-project-specific-decisions class=hash-link aria-label="Direct link to Appendix A — Suggested Project-Specific Decisions" title="Direct link to Appendix A — Suggested Project-Specific Decisions" translate=no>​</a></h2>
+<p>Before production rollout, record decisions for:</p>
+<ul>
+<li class="">Applicable standards and editions.</li>
+<li class="">Supported languages and analyzers.</li>
+<li class="">Coding-rule baseline and applicability matrix.</li>
+<li class="">Severity mapping and safety/security escalation criteria.</li>
+<li class="">Coverage types and targets by component and test level.</li>
+<li class="">Code scope policy for generated, test, vendor, and third-party code.</li>
+<li class="">Legacy baseline and rebaseline authorization.</li>
+<li class="">Finding remediation SLAs.</li>
+<li class="">Waiver authorities and maximum waiver duration.</li>
+<li class="">OSS policy, SBOM format, and vulnerability response policy.</li>
+<li class="">Data retention, access controls, and dashboard availability targets.</li>
+<li class="">Release-gate ownership and fallback procedure.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=appendix-b--glossary>Appendix B — Glossary<a href=#appendix-b--glossary class=hash-link aria-label="Direct link to Appendix B — Glossary" title="Direct link to Appendix B — Glossary" translate=no>​</a></h2>
+<table><thead><tr><th>Term<th>Meaning<tbody><tr><td>ALM<td>Application Lifecycle Management<tr><td>ASPICE<td>Automotive SPICE process assessment framework<tr><td>ASIL<td>Automotive Safety Integrity Level<tr><td>CI/CD<td>Continuous Integration / Continuous Delivery or Deployment<tr><td>ECU<td>Electronic Control Unit<tr><td>Gate<td>A controlled acceptance decision at a lifecycle point<tr><td>KLOC<td>Thousand lines of code, using a documented counting convention<tr><td>OSS<td>Open-source software<tr><td>SCA<td>Software Composition Analysis<tr><td>SBOM<td>Software Bill of Materials<tr><td>SQA<td>Software Quality Assurance<tr><td>Waiver / Deviation<td>Authorized, scoped exception with rationale and evidence</table></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href=https://github.com/your-github-username/code-quality-management/tree/main/docs/assurance/quality-dashboard.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_Z9Sw aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/docs/assurance/release-quality-checklist><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>Release Quality Checklist</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#1-purpose class="table-of-contents__link toc-highlight">1. Purpose</a><li><a href=#2-objectives class="table-of-contents__link toc-highlight">2. Objectives</a><li><a href=#3-scope class="table-of-contents__link toc-highlight">3. Scope</a><ul><li><a href=#31-in-scope class="table-of-contents__link toc-highlight">3.1 In Scope</a><li><a href=#32-out-of-scope class="table-of-contents__link toc-highlight">3.2 Out of Scope</a></ul><li><a href=#4-normative-language-and-references class="table-of-contents__link toc-highlight">4. Normative Language and References</a><li><a href=#5-design-principles class="table-of-contents__link toc-highlight">5. Design Principles</a><li><a href=#6-users-and-responsibilities class="table-of-contents__link toc-highlight">6. Users and Responsibilities</a><li><a href=#7-dashboard-information-architecture class="table-of-contents__link toc-highlight">7. Dashboard Information Architecture</a><ul><li><a href=#71-executive--program-overview class="table-of-contents__link toc-highlight">7.1 Executive / Program Overview</a><li><a href=#72-project--ecu-overview class="table-of-contents__link toc-highlight">7.2 Project / ECU Overview</a><li><a href=#73-component--repository-view class="table-of-contents__link toc-highlight">7.3 Component / Repository View</a><li><a href=#74-change--pull-request-view class="table-of-contents__link toc-highlight">7.4 Change / Pull-Request View</a><li><a href=#75-safety-and-cybersecurity-view class="table-of-contents__link toc-highlight">7.5 Safety and Cybersecurity View</a><li><a href=#76-oss-compliance-view class="table-of-contents__link toc-highlight">7.6 OSS Compliance View</a><li><a href=#77-trend-and-analytics-view class="table-of-contents__link toc-highlight">7.7 Trend and Analytics View</a></ul><li><a href=#8-metric-catalogue class="table-of-contents__link toc-highlight">8. Metric Catalogue</a><ul><li><a href=#81-core-metrics class="table-of-contents__link toc-highlight">8.1 Core Metrics</a><li><a href=#82-optional-metrics class="table-of-contents__link toc-highlight">8.2 Optional Metrics</a></ul><li><a href=#9-severity-and-priority-model class="table-of-contents__link toc-highlight">9. Severity and Priority Model</a><ul><li><a href=#91-suggested-finding-severity class="table-of-contents__link toc-highlight">9.1 Suggested Finding Severity</a><li><a href=#92-additional-required-attributes class="table-of-contents__link toc-highlight">9.2 Additional Required Attributes</a></ul><li><a href=#10-quality-gates class="table-of-contents__link toc-highlight">10. Quality Gates</a><ul><li><a href=#101-gate-types class="table-of-contents__link toc-highlight">10.1 Gate Types</a><li><a href=#102-example-gate-policy class="table-of-contents__link toc-highlight">10.2 Example Gate Policy</a><li><a href=#103-legacy-debt-and-baseline-policy class="table-of-contents__link toc-highlight">10.3 Legacy Debt and Baseline Policy</a></ul><li><a href=#11-workflow-and-lifecycle class="table-of-contents__link toc-highlight">11. Workflow and Lifecycle</a><ul><li><a href=#111-data-to-decision-workflow class="table-of-contents__link toc-highlight">11.1 Data-to-Decision Workflow</a><li><a href=#112-finding-lifecycle class="table-of-contents__link toc-highlight">11.2 Finding Lifecycle</a><li><a href=#113-waiver--deviation-workflow class="table-of-contents__link toc-highlight">11.3 Waiver / Deviation Workflow</a></ul><li><a href=#12-data-architecture-and-integration class="table-of-contents__link toc-highlight">12. Data Architecture and Integration</a><ul><li><a href=#121-logical-architecture class="table-of-contents__link toc-highlight">12.1 Logical Architecture</a><li><a href=#122-data-sources class="table-of-contents__link toc-highlight">12.2 Data Sources</a><li><a href=#123-minimum-analysis-run-metadata class="table-of-contents__link toc-highlight">12.3 Minimum Analysis Run Metadata</a><li><a href=#124-data-integrity-and-freshness class="table-of-contents__link toc-highlight">12.4 Data Integrity and Freshness</a></ul><li><a href=#13-visualization-and-interaction-requirements class="table-of-contents__link toc-highlight">13. Visualization and Interaction Requirements</a><ul><li><a href=#131-visual-status class="table-of-contents__link toc-highlight">13.1 Visual Status</a><li><a href=#132-drill-down class="table-of-contents__link toc-highlight">13.2 Drill-Down</a><li><a href=#133-filtering class="table-of-contents__link toc-highlight">13.3 Filtering</a><li><a href=#134-alerts class="table-of-contents__link toc-highlight">13.4 Alerts</a></ul><li><a href=#14-security-privacy-and-availability class="table-of-contents__link toc-highlight">14. Security, Privacy, and Availability</a><li><a href=#15-governance-and-change-control class="table-of-contents__link toc-highlight">15. Governance and Change Control</a><ul><li><a href=#151-metric-ownership class="table-of-contents__link toc-highlight">15.1 Metric Ownership</a><li><a href=#152-policy-change-process class="table-of-contents__link toc-highlight">15.2 Policy Change Process</a><li><a href=#153-metric-gaming-prevention class="table-of-contents__link toc-highlight">15.3 Metric Gaming Prevention</a></ul><li><a href=#16-reporting-and-review-cadence class="table-of-contents__link toc-highlight">16. Reporting and Review Cadence</a><li><a href=#17-acceptance-criteria-for-dashboard-delivery class="table-of-contents__link toc-highlight">17. Acceptance Criteria for Dashboard Delivery</a><li><a href=#18-implementation-roadmap class="table-of-contents__link toc-highlight">18. Implementation Roadmap</a><ul><li><a href=#phase-1--define-and-baseline class="table-of-contents__link toc-highlight">Phase 1 — Define and Baseline</a><li><a href=#phase-2--minimum-viable-dashboard class="table-of-contents__link toc-highlight">Phase 2 — Minimum Viable Dashboard</a><li><a href=#phase-3--automotive-lifecycle-integration class="table-of-contents__link toc-highlight">Phase 3 — Automotive Lifecycle Integration</a><li><a href=#phase-4--optimization class="table-of-contents__link toc-highlight">Phase 4 — Optimization</a></ul><li><a href=#19-example-dashboard-layout class="table-of-contents__link toc-highlight">19. Example Dashboard Layout</a><ul><li><a href=#program-summary class="table-of-contents__link toc-highlight">Program Summary</a><li><a href=#recommended-charts class="table-of-contents__link toc-highlight">Recommended Charts</a></ul><li><a href=#20-required-templates class="table-of-contents__link toc-highlight">20. Required Templates</a><ul><li><a href=#201-metric-definition-template class="table-of-contents__link toc-highlight">20.1 Metric Definition Template</a><li><a href=#202-quality-gate-rule-template class="table-of-contents__link toc-highlight">20.2 Quality Gate Rule Template</a><li><a href=#203-finding-record-template class="table-of-contents__link toc-highlight">20.3 Finding Record Template</a><li><a href=#204-waiver--deviation-template class="table-of-contents__link toc-highlight">20.4 Waiver / Deviation Template</a></ul><li><a href=#21-operational-risks-and-controls class="table-of-contents__link toc-highlight">21. Operational Risks and Controls</a><li><a href=#22-final-requirements-summary class="table-of-contents__link toc-highlight">22. Final Requirements Summary</a><li><a href=#appendix-a--suggested-project-specific-decisions class="table-of-contents__link toc-highlight">Appendix A — Suggested Project-Specific Decisions</a><li><a href=#appendix-b--glossary class="table-of-contents__link toc-highlight">Appendix B — Glossary</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Documentation</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/docs>Overview</a><li class=footer__item><a class=footer__link-item href=/docs/category/governance--framework>Governance & Framework</a><li class=footer__item><a class=footer__link-item href=/docs/category/engineering-guidelines>Engineering Guidelines</a><li class=footer__item><a class=footer__link-item href=/docs/category/assurance-audit--release>Assurance, Audit & Release</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Standards</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://www.automotivespice.com/ target=_blank rel="noopener noreferrer" class=footer__link-item>ASPICE / PAM<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://www.iso.org/standard/68383.html target=_blank rel="noopener noreferrer" class=footer__link-item>ISO 26262 Functional Safety<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://misra.org.uk/ target=_blank rel="noopener noreferrer" class=footer__link-item>MISRA C/C++<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>More</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://github.com/your-github-username/code-quality-management target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub Repository<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://docusaurus.io/ target=_blank rel="noopener noreferrer" class=footer__link-item>Docusaurus<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>Copyright © 2026 Code Quality Management. Built with Docusaurus.</div></div></div></footer></div></body>

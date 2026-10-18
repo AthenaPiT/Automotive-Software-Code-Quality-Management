@@ -1,0 +1,554 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-assurance/qa-audit-checklist" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.2"><title data-rh=true>Code Quality Assurance and Audit Checklist | Code Quality Management</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:image content=https://codequality.yourdomain.com/img/CodeQuality.png /><meta data-rh=true name=twitter:image content=https://codequality.yourdomain.com/img/CodeQuality.png /><meta data-rh=true property=og:url content=https://codequality.yourdomain.com/docs/assurance/qa-audit-checklist /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="Code Quality Assurance and Audit Checklist | Code Quality Management"/><meta data-rh=true name=description content="Independent QA levels, minimum controlled evidence, audit frequency and ready-to-use checklist."/><meta data-rh=true property=og:description content="Independent QA levels, minimum controlled evidence, audit frequency and ready-to-use checklist."/><link data-rh=true rel=icon href=/img/favicon.png /><link data-rh=true rel=canonical href=https://codequality.yourdomain.com/docs/assurance/qa-audit-checklist /><link data-rh=true rel=alternate href=https://codequality.yourdomain.com/docs/assurance/qa-audit-checklist hreflang=en /><link data-rh=true rel=alternate href=https://codequality.yourdomain.com/docs/assurance/qa-audit-checklist hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://codequality.yourdomain.com/docs/category/assurance-audit--release","name":"Assurance, Audit & Release","position":1},{"@type":"ListItem","item":"https://codequality.yourdomain.com/docs/assurance/qa-audit-checklist","name":"QA & Audit Checklist","position":2}]}</script><link rel=stylesheet href=/assets/css/styles.64bfa2f9.css /><script src=/assets/js/runtime~main.62772378.js defer></script><script src=/assets/js/main.ff7524c2.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-3d2")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"dark"),document.documentElement.setAttribute("data-theme-choice",t||"dark")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><link rel=preload as=image href=/img/CodeQuality.png /><div role=region aria-label="Skip to main content"><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/CodeQuality.png alt="Code Quality Management Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"/><img src=/img/CodeQuality.png alt="Code Quality Management Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"/></div><b class="navbar__title text--truncate">Code Quality Management</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/docs>Documentation</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/your-github-username/code-quality-management target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/docs><span class=linkLabel_WmDU>Overview</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/governance--framework><span class=categoryLinkLabel_W154>Governance & Framework</span></a><button aria-label="Collapse sidebar category 'Governance & Framework'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/governance/framework><span class=linkLabel_WmDU>Framework</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/governance/management-procedure><span class=linkLabel_WmDU>Management Procedure</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/engineering-guidelines><span class=categoryLinkLabel_W154>Engineering Guidelines</span></a><button aria-label="Collapse sidebar category 'Engineering Guidelines'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/guidelines/coding-standards-rule-catalogue><span class=linkLabel_WmDU>Coding Standards & Rule Catalogue</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/guidelines/static-analysis-toolchain><span class=linkLabel_WmDU>Static Analysis & Toolchain</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/guidelines/code-review><span class=linkLabel_WmDU>Code Review</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/guidelines/unit-testing><span class=linkLabel_WmDU>Unit Testing</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/guidelines/robustness-verification><span class=linkLabel_WmDU>Robustness Verification</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/guidelines/oss-compliance><span class=linkLabel_WmDU>OSS Compliance</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href=/docs/category/assurance-audit--release><span class=categoryLinkLabel_W154>Assurance, Audit & Release</span></a><button aria-label="Collapse sidebar category 'Assurance, Audit & Release'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/assurance/defect-escalation-deviation><span class=linkLabel_WmDU>Defect Escalation & Deviation</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/docs/assurance/qa-audit-checklist><span class=linkLabel_WmDU>QA & Audit Checklist</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/assurance/release-quality-checklist><span class=linkLabel_WmDU>Release Quality Checklist</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/assurance/quality-dashboard><span class=linkLabel_WmDU>Quality Dashboard</span></a></ul></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/docs/category/assurance-audit--release><span>Assurance, Audit & Release</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>QA & Audit Checklist</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Code Quality Assurance and Audit Checklist</h1></header><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=1-purpose>1. Purpose<a href=#1-purpose class=hash-link aria-label="Direct link to 1. Purpose" title="Direct link to 1. Purpose" translate=no>​</a></h2>
+<p>The QA function provides <strong>independent</strong> confidence in the software product <strong>and</strong> the development process. This document defines the three levels of assurance, the minimum controlled evidence set, the recommended audit frequency, and a ready-to-use audit checklist.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=scope-of-the-assurance-function>Scope of the assurance function<a href=#scope-of-the-assurance-function class=hash-link aria-label="Direct link to Scope of the assurance function" title="Direct link to Scope of the assurance function" translate=no>​</a></h4>
+<p>This document defines the <strong>independent assurance layer</strong> (Layer 3 of the framework, Doc 01 §4.1). It governs three things: (1) the <strong>three levels of quality control</strong> (developer, technical, independent) and who owns which; (2) the <strong>minimum controlled evidence set</strong> an auditor must be able to request; and (3) a repeatable <strong>audit checklist and reporting template</strong> used at G0, at milestones and pre-delivery. It is not an engineering-execution document — it does not redefine how static analysis (Doc 03), review (Doc 04), unit testing (Doc 05), robustness (Doc 06) or OSS compliance (Doc 07) are performed. It defines how an independent QA verifies that those activities actually happened, with evidence, to the agreed criteria.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=why-independent-assurance-is-a-separate-control>Why independent assurance is a separate control<a href=#why-independent-assurance-is-a-separate-control class=hash-link aria-label="Direct link to Why independent assurance is a separate control" title="Direct link to Why independent assurance is a separate control" translate=no>​</a></h4>
+<ul>
+<li class="">
+<p><strong>Assurance of the producer is not the producer's job:</strong> Automotive SPICE 4.0 SUP.1 (Software Product Assurance) requires assurance activities to be planned, performed and reported independently of the people who produced the work product. If the team that built the software also certifies it, the "assurance" is self-declaration — exactly what assessors reject.</p>
+</li>
+<li class="">
+<p><strong>Two objects must both be trustworthy:</strong> a good product produced by an uncontrolled process will not stay good; a clean process record hiding a defective product will fail in the field. QA must independently judge <em>both</em> the product <em>and</em> the process, which is why §2 splits assurance across developer, technical and independent levels.</p>
+</li>
+<li class="">
+<p><strong>Audit evidence is contractual:</strong> for in-house programs and especially supplier programs (VW Formel Q supplier evaluation, customer quality agreements), the audit record is the evidence that the agreed quality system was in place. Without a defined checklist and evidence set, the supplier-audit finding is subjective and un-defendable.</p>
+</li>
+<li class="">
+<p><strong>Gate independence feeds release integrity:</strong> the G4/G5 decision (Doc 11) relies on independent QA stating that evidence is complete and gate discipline held. Doc 08 is the source of that statement.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=stand-up-the-assurance-function-on-a-project>Stand up the assurance function on a project<a href=#stand-up-the-assurance-function-on-a-project class=hash-link aria-label="Direct link to Stand up the assurance function on a project" title="Direct link to Stand up the assurance function on a project" translate=no>​</a></h4>
+<ol>
+<li class="">
+<p><strong>Assign the independent role at G0:</strong> name the Project QA / R&D Quality person (or team) who performs Level 3 assurance; confirm they do not have line responsibility for the code being audited. Record it in the project quality plan (Doc 01 §5.1).</p>
+</li>
+<li class="">
+<p><strong>Confirm the evidence set is collectable:</strong> before the first milestone audit, verify that each of the ten work products in §3 is actually being produced and stored against a source revision (Doc 01 §8). If a work product has no owner, assign one before development starts.</p>
+</li>
+<li class="">
+<p><strong>Tailor frequency, never the checklist minimum:</strong> set the §4 audit cadence to project risk; keep every §5.1–§5.9 checklist item as an audit question regardless of cadence. Tailoring may reduce how often you audit a low-risk module, not what you may accept.</p>
+</li>
+<li class="">
+<p><strong>Calibrate the checklist once:</strong> run a pilot audit on one mature module, record false-positive checklist items, and adjust wording with R&D Quality. Do not silently drop items — changes to the checklist are configuration changes approved by the quality owner.</p>
+</li>
+<li class="">
+<p><strong>Acceptance / exit for setup:</strong> named independent QA; evidence owners assigned; baseline review at G0 completed; the audit-reporting template (§6) agreed.</p>
+</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=2-three-levels-of-quality-assurance>2. Three levels of quality assurance<a href=#2-three-levels-of-quality-assurance class=hash-link aria-label="Direct link to 2. Three levels of quality assurance" title="Direct link to 2. Three levels of quality assurance" translate=no>​</a></h2>
+<table><thead><tr><th>Level<th>Responsible party<th>Main activities<tbody><tr><td><strong>Level 1 — Developer quality control</strong><td>Developer<td>Local checks, self-review, test development, correction of findings<tr><td><strong>Level 2 — Technical quality control</strong><td>Peer reviewer / technical lead<td>Formal code review, result review, defect verification, merge authorization<tr><td><strong>Level 3 — Independent quality assurance</strong><td>Project QA / R&D Quality<td>Compliance audits, evidence sampling, gate oversight, deviation audits, process-effectiveness assessment</table>
+<p><strong>Supplier context:</strong> for software suppliers, the OEM or customer quality organization may also conduct independent assessments, review the supplier's evidence and enforce contractual quality requirements.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=the-three-level-control-model>The three-level control model<a href=#the-three-level-control-model class=hash-link aria-label="Direct link to The three-level control model" title="Direct link to The three-level control model" translate=no>​</a></h4>
+<p>The model separates <strong>who</strong> assures <strong>what</strong>, by increasing independence:</p>
+<ul>
+<li class="">
+<p><strong>Level 1 — Developer QC:</strong> the author's own local checks before anything leaves their machine. This is self-checking and is necessary but never sufficient — it cannot be the only assurance on a mandatory control.</p>
+</li>
+<li class="">
+<p><strong>Level 2 — Technical QC:</strong> a peer or technical lead applies engineering judgment (formal review, result review, defect verification, merge authorization at G2). This is the <em>technical</em> gate; it is still inside the project team.</p>
+</li>
+<li class="">
+<p><strong>Level 3 — Independent QA:</strong> Project QA / R&D Quality performs compliance audits, evidence sampling, gate oversight, deviation audits and process-effectiveness assessment. This is the <em>independent</em> layer and the owner of this document.</p>
+</li>
+</ul>
+<p>The supplier context row means the independence chain can extend outside the company: the OEM/customer quality organization is effectively an external Level 3 for a supplier program.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=why-three-levels-not-one-qa-team>Why three levels (not one "QA team")<a href=#why-three-levels-not-one-qa-team class=hash-link aria-label='Direct link to Why three levels (not one "QA team")' title='Direct link to Why three levels (not one "QA team")' translate=no>​</a></h4>
+<ul>
+<li class="">
+<p><strong>Self-checking is necessary but biased:</strong> a developer cannot be relied on to objectively certify their own code (the §4.2 independence rule of Doc 09 in spirit). Level 1 exists to catch the obvious early and cheaply; Level 2 exists to catch what the author cannot see; Level 3 exists to assure the system itself.</p>
+</li>
+<li class="">
+<p><strong>Defense in depth matches ASPICE and ISO 26262:</strong> layered verification and independent judgment are the ASPICE SUP.1 / SWE.6 expectation and the ISO 26262-2 §5.4.5 independence concept — verification persons must have sufficient independence from the item they verify.</p>
+</li>
+<li class="">
+<p><strong>Cost balance:</strong> moving assurance later (Level 3) is far more expensive and less effective than catching defects at Level 1/2. The three levels let the framework push defect prevention left while reserving independent oversight for the high-value judgments.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=assign-and-operate-each-level>Assign and operate each level<a href=#assign-and-operate-each-level class=hash-link aria-label="Direct link to Assign and operate each level" title="Direct link to Assign and operate each level" translate=no>​</a></h4>
+<ol>
+<li class="">
+<p><strong>Level 1 — Developer:</strong> mandate the pre-commit checklist (local build, lint/static analysis, relevant unit tests, self-review per Doc 04). <em>Evidence: local run logs / passing CI pre-check.Exit: changes only enter review after local checks pass.</em> Owner: developer.</p>
+</li>
+<li class="">
+<p><strong>Level 2 — Technical:</strong> every change passes formal review (Doc 04); merge is authorized by the technical lead only after findings are addressed and mandatory automated checks pass (G2). <em>Evidence: review record, approval, CI result.Exit: merge permitted.</em> Owner: peer reviewer / technical lead.</p>
+</li>
+<li class="">
+<p><strong>Level 3 — Independent QA:</strong> sample evidence, run this document's §5 checklist, audit deviations and gate decisions, and produce the §6 report. <em>Evidence: audit report with sampled evidence list.Exit: conformant / conditional / nonconformant verdict.</em> Owner: Project QA / R&D Quality.</p>
+</li>
+<li class="">
+<p><strong>Supplier program:</strong> add an external Level 3 row — OEM/customer quality reviews the supplier's evidence package and enforces the quality agreement. <em>Evidence: supplier audit report, contractual notice.</em> Owner: customer quality organization.</p>
+</li>
+<li class="">
+<p><strong>Exit criteria for the model to be credible:</strong> no mandatory control is certified at Level 1 alone; every mandatory control has a Level 2 or Level 3 record; Level 3 reviewers are independent of the producing team.</p>
+</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=3-minimum-controlled-evidence-set-qa-work-products>3. Minimum controlled evidence set (QA work products)<a href=#3-minimum-controlled-evidence-set-qa-work-products class=hash-link aria-label="Direct link to 3. Minimum controlled evidence set (QA work products)" title="Direct link to 3. Minimum controlled evidence set (QA work products)" translate=no>​</a></h2>
+<table><thead><tr><th>#<th>Work product<th>Source<tbody><tr><td>1<td>Software Code Quality Plan<td>Doc 01 (project tailors)<tr><td>2<td>Approved Coding Standards and Rule Catalogue<td>Doc 02<tr><td>3<td>Toolchain Qualification/Validation and Configuration Records<td>Doc 03<tr><td>4<td>Static Analysis and Code Metrics Reports<td>Doc 03<tr><td>5<td>Code Review Records and Checklists<td>Doc 04<tr><td>6<td>Unit Test Specifications, Results and Coverage Reports<td>Doc 05<tr><td>7<td>Robustness Verification Reports<td>Doc 06<tr><td>8<td>SBOM and OSS Compliance Assessment<td>Doc 07<tr><td>9<td>Defect, Deviation and Escalation Records<td>Doc 09<tr><td>10<td>Software Quality Gate Report and Release Approval<td>Doc 11</table>
+<blockquote>
+<p><strong>Process references:</strong> Automotive SPICE <strong>SUP.1</strong> is the appropriate reference for defining QA activities; <strong>SWE.3</strong> and <strong>SWE.4</strong> connect implementation and unit-verification evidence to engineering objectives.</p>
+</blockquote>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=the-minimum-evidence-set>The minimum evidence set<a href=#the-minimum-evidence-set class=hash-link aria-label="Direct link to The minimum evidence set" title="Direct link to The minimum evidence set" translate=no>​</a></h4>
+<p>These ten work products are the <strong>minimum set an independent auditor must be able to request and receive</strong> for the audited scope. Each row names the work product and the controlling subordinate document that produces it. The set spans governance (rows 1–3), engineering execution evidence (rows 4–8), defect/deviation records (row 9) and the gate/release decision itself (row 10). "Minimum" means: a project may produce more, but may not be missing any of these for the audited scope.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=why-a-fixed-evidence-set-exists>Why a fixed evidence set exists<a href=#why-a-fixed-evidence-set-exists class=hash-link aria-label="Direct link to Why a fixed evidence set exists" title="Direct link to Why a fixed evidence set exists" translate=no>​</a></h4>
+<ul>
+<li class="">
+<p><strong>Makes assurance repeatable:</strong> without a defined list, an audit "looks at whatever is handy" and misses the same gaps every time. The fixed set is the audit contract.</p>
+</li>
+<li class="">
+<p><strong>Ties to ASPICE work products:</strong> SUP.1 expects assurance to reference the work products of the engineering processes; SWE.3 (software detailed design/construction) and SWE.4 (software unit verification) explicitly require implementation and unit-verification evidence. The ten rows are the auditable form of those outputs.</p>
+</li>
+<li class="">
+<p><strong>Feeds traceability and release:</strong> Doc 11's G4/G5 evidence package is a subset of these ten; a missing work product here is a missing release artifact there.</p>
+</li>
+<li class="">
+<p><strong>Defends against "report shopping":</strong> an auditor samples from this controlled set, not from self-selected extracts.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=use-the-evidence-set-in-an-audit>Use the evidence set in an audit<a href=#use-the-evidence-set-in-an-audit class=hash-link aria-label="Direct link to Use the evidence set in an audit" title="Direct link to Use the evidence set in an audit" translate=no>​</a></h4>
+<ol>
+<li class="">
+<p><strong>Pre-audit request:</strong> send the work-product list to the project QA/lead three working days before the audit, asking for each item <em>for the audited revision</em> (with revision ID and configuration).</p>
+</li>
+<li class="">
+<p><strong>Row-by-row verification map (what "present and adequate" means):</strong></p>
+</li>
+</ol>
+<table><thead><tr><th>#<th>Work product<th>Present means<th>Adequate means (sample)<tbody><tr><td>1<td>Quality plan<td>Approved, versioned, in repository<td>Tailored to ASIL/security/contract; thresholds and authorities projectized<tr><td>2<td>Rule catalogue<td>Approved baseline pinned to version<td>Mandatory rules not independently disabled; deviations logged (Doc 09)<tr><td>3<td>Toolchain records<td>Qualification/validation on file, versions pinned<td>Validation corpus re-run on version change; ISO 26262 tool confidence addressed<tr><td>4<td>Static-analysis/metrics reports<td>Generated for the audited build<td>No missing/incomplete report; violations dispositioned; metrics within limits<tr><td>5<td>Review records<td>Review records exist for changes<td>Seven-dimension checklist used; approvals present; no self-approval<tr><td>6<td>Unit test specs/results/coverage<td>Executed and archived<td>Traceability unit↔requirement↔test; coverage criteria met or deviated<tr><td>7<td>Robustness reports<td>Failure-class tests executed<td>Critical findings linked to defects + regression tests<tr><td>8<td>SBOM / OSS assessment<td>SBOM complete (direct+transitive), verified<td>Licenses classified; vulnerabilities triaged/accepted before release<tr><td>9<td>Defect/deviation/escalation records<td>Tracker contains all mandatory fields<td>Lifecycle followed; no owner self-approved downgrade/deviation/waiver<tr><td>10<td>Gate report / release approval<td>Gate report signed for the revision<td>Gate closure documented; open deviations current; tied to exact revision</table>
+<ol>
+<li class="">
+<p><strong>Sampling rule:</strong> for large projects, sample evidence statistically or risk-based (e.g., all high-ASIL modules + a random sample of others); record the sampling plan in the audit report. Sampling depth is <strong>[TBD by organization]</strong> after pilot.</p>
+</li>
+<li class="">
+<p><strong>Record gaps:</strong> any missing or inadequate work product becomes a finding (§6), not a "we'll get it later".</p>
+</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=4-recommended-qa-audit-frequency>4. Recommended QA audit frequency<a href=#4-recommended-qa-audit-frequency class=hash-link aria-label="Direct link to 4. Recommended QA audit frequency" title="Direct link to 4. Recommended QA audit frequency" translate=no>​</a></h2>
+<p>Set frequency based on project risk and maturity:</p>
+<table><thead><tr><th>Point<th>Frequency / trigger<th>Focus<tbody><tr><td>Project initiation<td>Baseline review<td>Quality plan, standards, toolchain, rules approved<tr><td>Major development milestones<td>Compliance assessment<td>Evidence completeness, gate discipline<tr><td>Periodic sampling<td>Ongoing<td>Code and verification evidence sampling<tr><td>Pre-delivery<td>Formal release-readiness audit<td>Gate closure, deviations, release evidence</table>
+<blockquote>
+<p><strong>Recurring finding rule:</strong> any recurring audit finding triggers <strong>root-cause analysis and an improvement action</strong> — it must not be repeatedly treated as an isolated project deviation.</p>
+</blockquote>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=the-four-audit-points-and-the-recurring-finding-rule>The four audit points and the recurring-finding rule<a href=#the-four-audit-points-and-the-recurring-finding-rule class=hash-link aria-label="Direct link to The four audit points and the recurring-finding rule" title="Direct link to The four audit points and the recurring-finding rule" translate=no>​</a></h4>
+<p>The frequency table defines <strong>when</strong> assurance happens, against project risk and maturity:</p>
+<ul>
+<li class="">
+<p><strong>Project initiation (baseline review):</strong> at G0, confirm the quality plan, standards, toolchain and rules are approved <em>before</em> coding.</p>
+</li>
+<li class="">
+<p><strong>Major development milestones (compliance assessment):</strong> at integration/milestone points, check evidence completeness and gate discipline.</p>
+</li>
+<li class="">
+<p><strong>Periodic sampling (ongoing):</strong> continuous/risk-based sampling of code and verification evidence between milestones.</p>
+</li>
+<li class="">
+<p><strong>Pre-delivery (release-readiness audit):</strong> the formal audit at G4/G5 confirming gate closure, deviations and release evidence.</p>
+</li>
+</ul>
+<p>The recurring-finding rule is a standing control: the <em>same</em> finding appearing in more than one audit is treated as a <strong>systemic process defect</strong>, not as a one-off project deviation — it must trigger root-cause analysis and an improvement action.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=why-frequency-is-risk-based-and-recurring-findings-are-escalated>Why frequency is risk-based and recurring findings are escalated<a href=#why-frequency-is-risk-based-and-recurring-findings-are-escalated class=hash-link aria-label="Direct link to Why frequency is risk-based and recurring findings are escalated" title="Direct link to Why frequency is risk-based and recurring findings are escalated" translate=no>​</a></h4>
+<ul>
+<li class="">
+<p><strong>Fixed blind cadence misses drift:</strong> auditing on a calendar rather than on risk means you over-audit mature areas and under-audit unstable ones. Risk/maturity-based frequency focuses independent effort where it pays.</p>
+</li>
+<li class="">
+<p><strong>Recurrence is the leading indicator of process failure:</strong> a finding that recurs is not an isolated mistake — it is evidence that the process (rule, checklist, training, tool) does not prevent the defect. Treating each recurrence as a fresh "project deviation" allows the same defect class to escape release repeatedly. This is the direct counter to the escaped-defect metric in Doc 10.</p>
+</li>
+<li class="">
+<p><strong>Standards alignment:</strong> continual improvement and correction of nonconformities are expected by ASPICE SUP.1 and by the plan-do-check-act loop of the whole framework (README §3 continuous feedback loop).</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=plan-the-cadence-and-handle-recurrence>Plan the cadence and handle recurrence<a href=#plan-the-cadence-and-handle-recurrence class=hash-link aria-label="Direct link to Plan the cadence and handle recurrence" title="Direct link to Plan the cadence and handle recurrence" translate=no>​</a></h4>
+<ol>
+<li class="">
+<p><strong>Set frequency by risk/maturity</strong> (record the decision in the quality plan): higher frequency for new teams, high-ASIL modules, new toolchain versions and unstable defect trends; lower for mature, stable, low-risk areas. The actual cadence values are <strong>[TBD by organization]</strong> after a pilot cycle.</p>
+</li>
+<li class="">
+<p><strong>Always keep the two fixed points:</strong> the G0 baseline review and the pre-delivery release-readiness audit are non-negotiable regardless of maturity.</p>
+</li>
+<li class="">
+<p><strong>Operationalize the recurring-finding rule:</strong></p>
+<ul>
+<li class="">
+<p>Maintain a finding register with the checklist area, the finding and the first/last occurrence dates.</p>
+</li>
+<li class="">
+<p>When the <em>same or equivalent</em> finding recurs (threshold count is <strong>[TBD by organization]</strong>, e.g., after 2 occurrences across consecutive audits), QA raises a process-effectiveness review.</p>
+</li>
+<li class="">
+<p>The review performs root-cause analysis (5-Why on the <em>process</em>, not the person), assigns a corrective/preventive action with owner and deadline, and closes it through the Doc 09 lifecycle where it is a P1/P2.</p>
+</li>
+<li class="">
+<p>Feed the root cause into Doc 08 audit topics, Doc 02 rules or training so it does not recur.</p>
+</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Exit criteria:</strong> every recurring finding has a documented root cause, an improvement action, an owner and a deadline; the next audit verifies the action took effect (recurrence stopped), not merely that the action was issued.</p>
+</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=5-audit-checklist>5. Audit checklist<a href=#5-audit-checklist class=hash-link aria-label="Direct link to 5. Audit checklist" title="Direct link to 5. Audit checklist" translate=no>​</a></h2>
+<p>The checklist below is the ready-to-use instrument. Each subsection is applied as audit questions; items are preserved as checkboxes. The expansion blocks after each subsection explain what each checkbox means, why it matters and how to evidence it.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=51-governance-and-planning>5.1 Governance and planning<a href=#51-governance-and-planning class=hash-link aria-label="Direct link to 5.1 Governance and planning" title="Direct link to 5.1 Governance and planning" translate=no>​</a></h3>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->Project quality plan approved at G0, tailored to ASIL/security/contract requirements.</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->Applicable standards pinned (versions, applicability, deviations).</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->Roles and decision authorities defined; no self-approval paths.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=governance-and-planning-audit-area>Governance and planning audit area<a href=#governance-and-planning-audit-area class=hash-link aria-label="Direct link to Governance and planning audit area" title="Direct link to Governance and planning audit area" translate=no>​</a></h4>
+<p>This area checks that the project was <strong>set up under control</strong>: an approved quality plan exists (Doc 01), the applicable standards are version-pinned with known applicability and deviations, and the role/decision-authority model is defined with no self-approval paths.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=why-it-is-audited-first>Why it is audited first<a href=#why-it-is-audited-first class=hash-link aria-label="Direct link to Why it is audited first" title="Direct link to Why it is audited first" translate=no>​</a></h4>
+<ul>
+<li class="">
+<p>Setup is the root of most downstream nonconformity: a plan approved late, an unpinned standard, or an undefined authority reappears as gate failures and self-approval findings at every later audit.</p>
+</li>
+<li class="">
+<p>It operationalizes Doc 01 §5.2 (named decision authorities) and the Doc 09 §4.2 independence rule.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=evidence-each-checkbox>Evidence each checkbox<a href=#evidence-each-checkbox class=hash-link aria-label="Direct link to Evidence each checkbox" title="Direct link to Evidence each checkbox" translate=no>​</a></h4>
+<ol>
+<li class="">
+<p><strong>Quality plan approved at G0:</strong> evidence = approved, versioned quality plan in the repository, dated no later than the G0 decision; check it explicitly tailors for ASIL, cybersecurity exposure and contract clauses (Doc 01 §2 tailoring rule).</p>
+</li>
+<li class="">
+<p><strong>Standards pinned:</strong> evidence = a standards applicability list naming MISRA/C, AUTOSAR C++14, ISO 26262, ISO/SAE 21434, SPDX/SPDX license policy with <em>adopted versions</em>; any deviation from a standard is logged per Doc 09.</p>
+</li>
+<li class="">
+<p><strong>Authorities defined / no self-approval:</strong> evidence = the projectized decision-authority table (Doc 01 §5.2) with named persons; sample two recent decisions (e.g., a deviation, a merge) and confirm approver ≠ owner.</p>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=52-standards-and-rules>5.2 Standards and rules<a href=#52-standards-and-rules class=hash-link aria-label="Direct link to 5.2 Standards and rules" title="Direct link to 5.2 Standards and rules" translate=no>​</a></h3>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->Rule catalogue current, centrally versioned, mandatory rules not independently disabled.</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->Custom rules have ID, purpose, mapping, detection mechanism, test evidence, owner, change history.</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->Problem types (config defect / false positive / deviation / real defect) handled through distinct paths.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=standards-and-rules-audit-area>Standards and rules audit area<a href=#standards-and-rules-audit-area class=hash-link aria-label="Direct link to Standards and rules audit area" title="Direct link to Standards and rules audit area" translate=no>​</a></h4>
+<p>This area verifies the coding-standards system (Doc 02) is under configuration control: the rule catalogue is current and centrally versioned, mandatory rules cannot be switched off by an individual, custom rules are fully documented engineering artifacts, and the four finding categories (config defect / false positive / deviation / real defect) are routed through the distinct paths defined in Doc 09 §5.1.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=why-it-matters>Why it matters<a href=#why-it-matters class=hash-link aria-label="Direct link to Why it matters" title="Direct link to Why it matters" translate=no>​</a></h4>
+<ul>
+<li class="">
+<p>A catalogue that individuals disable locally becomes un-auditable; a custom rule without detection evidence or owner is an unjustified rule; and mixing up the four problem types is the classic route to unjustified suppression of real findings.</p>
+</li>
+<li class="">
+<p>It maps to ASPICE SUP.1 assurance of defined standards and to the MISRA/AUTOSAR applicability expectations.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=evidence-each-checkbox-1>Evidence each checkbox<a href=#evidence-each-checkbox-1 class=hash-link aria-label="Direct link to Evidence each checkbox" title="Direct link to Evidence each checkbox" translate=no>​</a></h4>
+<ol>
+<li class="">
+<p><strong>Catalogue current / centrally versioned:</strong> evidence = a single controlled catalogue with version; confirm no developer-local rule-disabling overrides exist in the audited build configuration (Doc 03).</p>
+</li>
+<li class="">
+<p><strong>Custom rule documentation:</strong> for a sampled custom rule, verify it has all eight attributes — ID, purpose, standard mapping, detection mechanism, test/false-positive evidence, owner, change history (Doc 02 rule lifecycle). A missing attribute = P2 finding.</p>
+</li>
+<li class="">
+<p><strong>Distinct problem-type paths:</strong> sample three recent findings and confirm they took the correct path (Doc 09 §5.1 decision sequence): config defect → fix & re-run; false positive → justified suppression; deviation → approved exception; real defect → fix through the lifecycle. Any finding "suppressed" without a documented path is a P1 finding.</p>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=53-toolchain>5.3 Toolchain<a href=#53-toolchain class=hash-link aria-label="Direct link to 5.3 Toolchain" title="Direct link to 5.3 Toolchain" translate=no>​</a></h3>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->Tool, compiler, plugin, rule-pack versions pinned; environment reproducible.</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->Tool validation corpus exists and is re-run on version change.</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->ISO 26262 tool-confidence requirements addressed where applicable.</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->Tool failures are gate failures, not silently skipped.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=toolchain-audit-area>Toolchain audit area<a href=#toolchain-audit-area class=hash-link aria-label="Direct link to Toolchain audit area" title="Direct link to Toolchain audit area" translate=no>​</a></h4>
+<p>This area verifies the analysis/build toolchain (Doc 03) is reproducible and trustworthy: versions are pinned, a validation corpus proves the tool detects what it claims, ISO 26262 tool confidence (TCL) is addressed where functional safety applies, and a tool failure blocks the gate rather than being worked around.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=why-it-matters-1>Why it matters<a href=#why-it-matters-1 class=hash-link aria-label="Direct link to Why it matters" title="Direct link to Why it matters" translate=no>​</a></h4>
+<ul>
+<li class="">
+<p>Unpinned tools make every report non-reproducible; a tool never re-validated after an upgrade may silently stop detecting; and treating a failed analysis as "skip" destroys the gate's meaning.</p>
+</li>
+<li class="">
+<p>ISO 26262-8 §11 (confidence in the use of software tools) and ASPICE SUP.1 both require justified tool confidence; this area is the audit of that justification.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=evidence-each-checkbox-2>Evidence each checkbox<a href=#evidence-each-checkbox-2 class=hash-link aria-label="Direct link to Evidence each checkbox" title="Direct link to Evidence each checkbox" translate=no>​</a></h4>
+<ol>
+<li class="">
+<p><strong>Versions pinned / reproducible:</strong> evidence = a pinned toolchain manifest (tool, compiler, plugin, rule-pack versions, environment) tied to the audited build; confirm the same build can be reproduced.</p>
+</li>
+<li class="">
+<p><strong>Validation corpus:</strong> evidence = a maintained corpus of known-defect test inputs; confirm it was re-run when any tool/rule-pack version changed (Doc 03).</p>
+</li>
+<li class="">
+<p><strong>Tool confidence:</strong> where ASIL applies, evidence = a tool classification (TCL) and the argument/justification that the tool is safe to use for the claim made.</p>
+</li>
+<li class="">
+<p><strong>Failures = gate failures:</strong> check the CI/gate configuration — a tool/analysis failure cannot be dismissed; sample one past failed build to confirm it blocked rather than skipped. Silent skips = P1 finding.</p>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=54-review>5.4 Review<a href=#54-review class=hash-link aria-label="Direct link to 5.4 Review" title="Direct link to 5.4 Review" translate=no>​</a></h3>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->Review scope and seven-dimension checklist applied; high-risk changes get escalated review.</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->Merge blocked until required approvals and automated checks pass; no self-approval.</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->Review effectiveness measured by findings/escape/rework, not approval count.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=review-audit-area>Review audit area<a href=#review-audit-area class=hash-link aria-label="Direct link to Review audit area" title="Direct link to Review audit area" translate=no>​</a></h4>
+<p>This area verifies code review (Doc 04) is performed to defined depth: the seven-dimension checklist is applied, high-risk changes get escalated review, merge is gated on approvals + automated checks with no self-approval, and review performance is judged by outcomes (findings, escaped defects, rework) rather than by how many reviews were approved.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=why-it-matters-2>Why it matters<a href=#why-it-matters-2 class=hash-link aria-label="Direct link to Why it matters" title="Direct link to Why it matters" translate=no>​</a></h4>
+<ul>
+<li class="">
+<p>A review that approves without a checklist, or that counts "approvals" as success, gives false assurance; self-approval defeats the purpose. Measuring review by approval volume is a known anti-pattern.</p>
+</li>
+<li class="">
+<p>It maps to ASPICE SWE.6 / peer-review expectations and the independence principle.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=evidence-each-checkbox-3>Evidence each checkbox<a href=#evidence-each-checkbox-3 class=hash-link aria-label="Direct link to Evidence each checkbox" title="Direct link to Evidence each checkbox" translate=no>​</a></h4>
+<ol>
+<li class="">
+<p><strong>Checklist applied / escalated review:</strong> sample two reviews, confirm the seven-dimension checklist was used and that high-risk changes (size, complexity, safety/security relevance) received escalated/deeper review.</p>
+</li>
+<li class="">
+<p><strong>Merge gated / no self-approval:</strong> evidence = branch protection / merge policy requiring approvals + passing automated checks; sample merged changes to confirm approver ≠ author. Self-approval = P1 finding.</p>
+</li>
+<li class="">
+<p><strong>Effectiveness measured:</strong> evidence = the review-effectiveness KPI in Doc 10 (findings by severity, escaped defects, rework) — confirm the project reviews outcomes, not approval counts.</p>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=55-unit-testing>5.5 Unit testing<a href=#55-unit-testing class=hash-link aria-label="Direct link to 5.5 Unit testing" title="Direct link to 5.5 Unit testing" translate=no>​</a></h3>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->C0/C1 (and MC/DC where applicable) criteria defined and frozen.</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->Traceability complete (unit ↔ requirement ↔ test).</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->Coverage exclusions classified and justified; legacy code not silently excluded.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=unit-testing-audit-area>Unit testing audit area<a href=#unit-testing-audit-area class=hash-link aria-label="Direct link to Unit testing audit area" title="Direct link to Unit testing audit area" translate=no>​</a></h4>
+<p>This area verifies unit verification (Doc 05) against defined structural coverage: C0/C1 criteria (and MC/DC where the applicable standard/ASIL requires) are frozen, traceability unit↔requirement↔test exists, and coverage exclusions are classified and justified rather than silently swept out of scope.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=why-it-matters-3>Why it matters<a href=#why-it-matters-3 class=hash-link aria-label="Direct link to Why it matters" title="Direct link to Why it matters" translate=no>​</a></h4>
+<ul>
+<li class="">
+<p>Unfrozen coverage criteria means the bar moves; missing traceability breaks the verification chain assessors check; silent legacy exclusions hide real untested code.</p>
+</li>
+<li class="">
+<p>It maps to ASPICE SWE.4 (software unit verification) and ISO 26262-6 §9 structural coverage.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=evidence-each-checkbox-4>Evidence each checkbox<a href=#evidence-each-checkbox-4 class=hash-link aria-label="Direct link to Evidence each checkbox" title="Direct link to Evidence each checkbox" translate=no>​</a></h4>
+<ol>
+<li class="">
+<p><strong>Criteria defined/frozen:</strong> evidence = the frozen coverage target in the quality plan (C0/C1; MC/DC where applicable by ASIL) — the numeric threshold itself is <strong>[TBD by organization]</strong>; confirm it was set, not invented.</p>
+</li>
+<li class="">
+<p><strong>Traceability complete:</strong> sample three units, confirm each links to its requirement and to its test cases.</p>
+</li>
+<li class="">
+<p><strong>Exclusions justified:</strong> obtain the coverage-exclusion list; confirm each exclusion is classified and justified and that legacy code is not bulk-excluded without a documented risk decision.</p>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=56-robustness>5.6 Robustness<a href=#56-robustness class=hash-link aria-label="Direct link to 5.6 Robustness" title="Direct link to 5.6 Robustness" translate=no>​</a></h3>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->Robustness is a distinct workstream; failure classes per Doc 06 defined and tested.</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->Critical robustness findings linked to defects + regression tests; root cause extended beyond the line.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=robustness-audit-area>Robustness audit area<a href=#robustness-audit-area class=hash-link aria-label="Direct link to Robustness audit area" title="Direct link to Robustness audit area" translate=no>​</a></h4>
+<p>This area verifies robustness verification (Doc 06) is a planned workstream, not an afterthought: the defined failure classes are tested, and critical robustness findings are treated as defects with regression tests, with root-cause analysis that extends beyond the single faulty line to the design/defense-in-depth gap.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=why-it-matters-4>Why it matters<a href=#why-it-matters-4 class=hash-link aria-label="Direct link to Why it matters" title="Direct link to Why it matters" translate=no>​</a></h4>
+<ul>
+<li class="">
+<p>Robustness (behavior under abnormal/boundary input) is where automotive field escapes originate; if it is not a distinct workstream it is not done. Treating a robustness crash as a one-line fix without regression tests guarantees recurrence.</p>
+</li>
+<li class="">
+<p>It maps to ASPICE SWE.5/SWE.6 verification and to ISO 26262 robustness expectations.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=evidence-each-checkbox-5>Evidence each checkbox<a href=#evidence-each-checkbox-5 class=hash-link aria-label="Direct link to Evidence each checkbox" title="Direct link to Evidence each checkbox" translate=no>​</a></h4>
+<ol>
+<li class="">
+<p><strong>Distinct workstream:</strong> evidence = a robustness test plan covering the Doc 06 failure classes for the audited components.</p>
+</li>
+<li class="">
+<p><strong>Findings linked + root-cause depth:</strong> sample a critical robustness finding, confirm it is (a) logged as a defect in Doc 09, (b) has a regression test, and (c) the root cause addresses the defense-in-depth gap (input validation, bounds handling), not only the observed line.</p>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=57-oss-compliance>5.7 OSS compliance<a href=#57-oss-compliance class=hash-link aria-label="Direct link to 5.7 OSS compliance" title="Direct link to 5.7 OSS compliance" translate=no>​</a></h3>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->SBOM complete (direct + transitive), submitted and verified.</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->Licenses classified per product policy; copyleft/incompatible findings dispositioned.</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->Vulnerabilities triaged and remediated or formally accepted before release.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=oss-compliance-audit-area>OSS compliance audit area<a href=#oss-compliance-audit-area class=hash-link aria-label="Direct link to OSS compliance audit area" title="Direct link to OSS compliance audit area" translate=no>​</a></h4>
+<p>This area verifies open-source compliance (Doc 07): the SBOM is complete (direct + transitive dependencies), licenses are classified against the product policy with copyleft/incompatible findings dispositioned, and known vulnerabilities are triaged and either remediated or formally accepted <em>before</em> release.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=why-it-matters-5>Why it matters<a href=#why-it-matters-5 class=hash-link aria-label="Direct link to Why it matters" title="Direct link to Why it matters" translate=no>​</a></h4>
+<ul>
+<li class="">
+<p>Incomplete SBOM or un-dispositioned copyleft creates legal and supply-chain exposure; an un-triaged known vulnerability shipping in a vehicle is a recall-level and ISO/SAE 21434 concern.</p>
+</li>
+<li class="">
+<p>It maps to SPDX (ISO/IEC 5962:2021) as the SBOM format and to ISO/SAE 21434 vulnerability management.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=evidence-each-checkbox-6>Evidence each checkbox<a href=#evidence-each-checkbox-6 class=hash-link aria-label="Direct link to Evidence each checkbox" title="Direct link to Evidence each checkbox" translate=no>​</a></h4>
+<ol>
+<li class="">
+<p><strong>SBOM complete/verified:</strong> evidence = an SBOM (SPDX format) covering direct + transitive components, verified against the exact delivered revision.</p>
+</li>
+<li class="">
+<p><strong>Licenses classified:</strong> evidence = a license classification table against the product policy; confirm copyleft/incompatible findings have a disposition (approved, removed, or isolated).</p>
+</li>
+<li class="">
+<p><strong>Vulnerabilities triaged:</strong> evidence = a vulnerability list with triage result (remediated / formally accepted with justification) closed before G4/G5; an open blocking vulnerability at release = release block per Doc 11.</p>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=58-defects-and-deviations>5.8 Defects and deviations<a href=#58-defects-and-deviations class=hash-link aria-label="Direct link to 5.8 Defects and deviations" title="Direct link to 5.8 Defects and deviations" translate=no>​</a></h3>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->Escalation model and SLAs defined; decision authorities unambiguous.</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->No severity downgrade / deviation / waiver by the defect owner alone.</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->Recurring findings have root-cause and improvement actions.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=defects-and-deviations-audit-area>Defects and deviations audit area<a href=#defects-and-deviations-audit-area class=hash-link aria-label="Direct link to Defects and deviations audit area" title="Direct link to Defects and deviations audit area" translate=no>​</a></h4>
+<p>This area verifies the defect/escalation system (Doc 09) is in force: the P0–P3 escalation model and service-level table are defined with named authorities, the independence rule holds (no owner self-approving downgrade/deviation/waiver), and recurring findings carry root-cause and improvement actions.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=why-it-matters-6>Why it matters<a href=#why-it-matters-6 class=hash-link aria-label="Direct link to Why it matters" title="Direct link to Why it matters" translate=no>​</a></h4>
+<ul>
+<li class="">
+<p>This is the direct audit of the Doc 09 controls; ambiguous SLAs or self-approved exceptions are the root cause of unsafe releases.</p>
+</li>
+<li class="">
+<p>It maps to ASPICE SUP.1 assurance of issue handling and to the ISO 26262-2 independence requirement.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=evidence-each-checkbox-7>Evidence each checkbox<a href=#evidence-each-checkbox-7 class=hash-link aria-label="Direct link to Evidence each checkbox" title="Direct link to Evidence each checkbox" translate=no>​</a></h4>
+<ol>
+<li class="">
+<p><strong>Model/SLAs defined:</strong> evidence = the projectized service-level table (Doc 09 §2.1) with response/containment times, named decision authority and notification channel per priority. Times are <strong>[TBD by organization]</strong> but must exist.</p>
+</li>
+<li class="">
+<p><strong>Independence rule:</strong> sample recent downgrades/deviations/waivers; confirm approver ≠ defect owner, justification exists, and approval predates effect. One violation = P1 finding through Doc 09.</p>
+</li>
+<li class="">
+<p><strong>Recurring findings handled:</strong> evidence = the finding register with root cause and improvement action per the §4 recurring-finding rule.</p>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=59-gates-and-release>5.9 Gates and release<a href=#59-gates-and-release class=hash-link aria-label="Direct link to 5.9 Gates and release" title="Direct link to 5.9 Gates and release" translate=no>​</a></h3>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->Gates G0–G5 enforced; exceptions documented with scope, risk, compensating measures, approver, review conditions.</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->Release evidence per Doc 11 complete and tied to the exact software revision.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=gates-and-release-audit-area>Gates and release audit area<a href=#gates-and-release-audit-area class=hash-link aria-label="Direct link to Gates and release audit area" title="Direct link to Gates and release audit area" translate=no>​</a></h4>
+<p>This area verifies the gate model (Doc 01 §6.1, G0–G5) is actually enforced and that release evidence (Doc 11) is complete and tied to the exact released revision. Every gate exception must carry the full set of exception attributes: scope, rationale, residual risk, compensating measures, approving authority, review conditions/expiry.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=why-it-matters-7>Why it matters<a href=#why-it-matters-7 class=hash-link aria-label="Direct link to Why it matters" title="Direct link to Why it matters" translate=no>​</a></h4>
+<ul>
+<li class="">
+<p>Gates that are bypassed or "passed" without documented exceptions are not gates; release evidence not tied to the exact revision means the released binary is un-auditable.</p>
+</li>
+<li class="">
+<p>It maps to the framework's mandatory release criteria (Doc 01 §6.2 gate discipline) and to the G5 release decision (Doc 11).</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=evidence-each-checkbox-8>Evidence each checkbox<a href=#evidence-each-checkbox-8 class=hash-link aria-label="Direct link to Evidence each checkbox" title="Direct link to Evidence each checkbox" translate=no>​</a></h4>
+<ol>
+<li class="">
+<p><strong>Gates enforced / exceptions documented:</strong> sample the gate history; confirm each gate has a pass/fail decision and that every exception has all six attributes. A gate "passed" on an undocumented exception = P1 finding.</p>
+</li>
+<li class="">
+<p><strong>Release evidence tied to revision:</strong> evidence = the Doc 11 evidence package for the released build, each item linked to the exact source revision and configuration (Doc 01 §8).</p>
+</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=6-audit-reporting>6. Audit reporting<a href=#6-audit-reporting class=hash-link aria-label="Direct link to 6. Audit reporting" title="Direct link to 6. Audit reporting" translate=no>​</a></h2>
+<p>The audit outcome records:</p>
+<table><thead><tr><th>Item<th>Detail<tbody><tr><td>Audit scope and date<td>Project, modules, processes audited<tr><td>Evidence sampled<td>Reports/records reviewed (with revision)<tr><td>Findings<td>Severity, area, evidence, required action, owner, due date<tr><td>Nonconformities<td>Mandatory-control breaches and gap to standard<tr><td>Improvement actions<td>Root cause, corrective/preventive action, owner, deadline<tr><td>Verdict<td>Conformant / conditionally conformant / nonconformant; next audit date</table>
+<blockquote>
+<p>A <strong>nonconformant</strong> verdict on a mandatory control blocks progression to the next gate until corrective actions are verified (per Doc 09 escalation).</p>
+</blockquote>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=the-audit-report-structure>The audit report structure<a href=#the-audit-report-structure class=hash-link aria-label="Direct link to The audit report structure" title="Direct link to The audit report structure" translate=no>​</a></h4>
+<p>The report is the <strong>controlled work product</strong> of an audit. It records scope/date, the exact evidence sampled (with revision), findings (severity, area, evidence, required action, owner, due date), nonconformities (mandatory-control breaches and the gap to the standard), improvement actions (root cause, corrective/preventive action, owner, deadline) and a verdict (conformant / conditionally conformant / nonconformant) with the next audit date.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=why-a-structured-report-is-mandatory>Why a structured report is mandatory<a href=#why-a-structured-report-is-mandatory class=hash-link aria-label="Direct link to Why a structured report is mandatory" title="Direct link to Why a structured report is mandatory" translate=no>​</a></h4>
+<ul>
+<li class="">
+<p>An audit without a structured record is not evidence; assessors and customer/supplier audits (VW Formel Q) judge the <em>record</em>, not the meeting.</p>
+</li>
+<li class="">
+<p>Distinguishing "findings" from "nonconformities" matters: a nonconformity is a breach of a <em>mandatory</em> control and carries gate-blocking weight; ordinary findings are improvements.</p>
+</li>
+<li class="">
+<p>The verdict drives the gate: a nonconformant mandatory-control finding blocks progression until corrective actions are verified (Doc 09 escalation).</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=produce-and-close-the-report>Produce and close the report<a href=#produce-and-close-the-report class=hash-link aria-label="Direct link to Produce and close the report" title="Direct link to Produce and close the report" translate=no>​</a></h4>
+<ol>
+<li class="">
+<p><strong>Fill the six items</strong> using the table; attach the sampled-evidence list with revisions so the report is reconstructible.</p>
+</li>
+<li class="">
+<p><strong>Severity findings using P0–P3</strong> (Doc 01 §9 / Doc 09 §2): a mandatory-control breach = at least P1; a blocked-gate issue = P0/P1 per consequence.</p>
+</li>
+<li class="">
+<p><strong>Assign nonconformities:</strong> each breach of a mandatory control is logged as a nonconformity with the gap statement ("control X of Doc 02/03/… not met").</p>
+</li>
+<li class="">
+<p><strong>Issue improvement actions:</strong> root cause + corrective/preventive action + owner + deadline; recurring findings route through the §4 root-cause rule.</p>
+</li>
+<li class="">
+<p><strong>Render the verdict and gate effect:</strong></p>
+<ul>
+<li class="">
+<p><strong>Conformant:</strong> no open mandatory-control breach; gate may progress.</p>
+</li>
+<li class="">
+<p><strong>Conditionally conformant:</strong> non-blocking gaps tracked with owners/deadlines.</p>
+</li>
+<li class="">
+<p><strong>Nonconformant:</strong> a mandatory-control breach exists → blocks progression to the next gate until corrective actions are verified (per Doc 09 escalation).</p>
+</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Close-out verification:</strong> QA re-checks that corrective actions actually closed the gap at the next audit (or sooner for P0/P1); the report's "next audit date" is set from risk/maturity per §4.</p>
+</li>
+</ol></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href=https://github.com/your-github-username/code-quality-management/tree/main/docs/assurance/qa-audit-checklist.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_Z9Sw aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/docs/assurance/defect-escalation-deviation><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>Defect Escalation & Deviation</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/docs/assurance/release-quality-checklist><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>Release Quality Checklist</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#1-purpose class="table-of-contents__link toc-highlight">1. Purpose</a><ul><li><a href=#scope-of-the-assurance-function class="table-of-contents__link toc-highlight">Scope of the assurance function</a><li><a href=#why-independent-assurance-is-a-separate-control class="table-of-contents__link toc-highlight">Why independent assurance is a separate control</a><li><a href=#stand-up-the-assurance-function-on-a-project class="table-of-contents__link toc-highlight">Stand up the assurance function on a project</a></ul><li><a href=#2-three-levels-of-quality-assurance class="table-of-contents__link toc-highlight">2. Three levels of quality assurance</a><ul><li><a href=#the-three-level-control-model class="table-of-contents__link toc-highlight">The three-level control model</a><li><a href=#why-three-levels-not-one-qa-team class="table-of-contents__link toc-highlight">Why three levels (not one "QA team")</a><li><a href=#assign-and-operate-each-level class="table-of-contents__link toc-highlight">Assign and operate each level</a></ul><li><a href=#3-minimum-controlled-evidence-set-qa-work-products class="table-of-contents__link toc-highlight">3. Minimum controlled evidence set (QA work products)</a><ul><li><a href=#the-minimum-evidence-set class="table-of-contents__link toc-highlight">The minimum evidence set</a><li><a href=#why-a-fixed-evidence-set-exists class="table-of-contents__link toc-highlight">Why a fixed evidence set exists</a><li><a href=#use-the-evidence-set-in-an-audit class="table-of-contents__link toc-highlight">Use the evidence set in an audit</a></ul><li><a href=#4-recommended-qa-audit-frequency class="table-of-contents__link toc-highlight">4. Recommended QA audit frequency</a><ul><li><a href=#the-four-audit-points-and-the-recurring-finding-rule class="table-of-contents__link toc-highlight">The four audit points and the recurring-finding rule</a><li><a href=#why-frequency-is-risk-based-and-recurring-findings-are-escalated class="table-of-contents__link toc-highlight">Why frequency is risk-based and recurring findings are escalated</a><li><a href=#plan-the-cadence-and-handle-recurrence class="table-of-contents__link toc-highlight">Plan the cadence and handle recurrence</a></ul><li><a href=#5-audit-checklist class="table-of-contents__link toc-highlight">5. Audit checklist</a><ul><li><a href=#51-governance-and-planning class="table-of-contents__link toc-highlight">5.1 Governance and planning</a><ul><li><a href=#governance-and-planning-audit-area class="table-of-contents__link toc-highlight">Governance and planning audit area</a><li><a href=#why-it-is-audited-first class="table-of-contents__link toc-highlight">Why it is audited first</a><li><a href=#evidence-each-checkbox class="table-of-contents__link toc-highlight">Evidence each checkbox</a></ul><li><a href=#52-standards-and-rules class="table-of-contents__link toc-highlight">5.2 Standards and rules</a><ul><li><a href=#standards-and-rules-audit-area class="table-of-contents__link toc-highlight">Standards and rules audit area</a><li><a href=#why-it-matters class="table-of-contents__link toc-highlight">Why it matters</a><li><a href=#evidence-each-checkbox-1 class="table-of-contents__link toc-highlight">Evidence each checkbox</a></ul><li><a href=#53-toolchain class="table-of-contents__link toc-highlight">5.3 Toolchain</a><ul><li><a href=#toolchain-audit-area class="table-of-contents__link toc-highlight">Toolchain audit area</a><li><a href=#why-it-matters-1 class="table-of-contents__link toc-highlight">Why it matters</a><li><a href=#evidence-each-checkbox-2 class="table-of-contents__link toc-highlight">Evidence each checkbox</a></ul><li><a href=#54-review class="table-of-contents__link toc-highlight">5.4 Review</a><ul><li><a href=#review-audit-area class="table-of-contents__link toc-highlight">Review audit area</a><li><a href=#why-it-matters-2 class="table-of-contents__link toc-highlight">Why it matters</a><li><a href=#evidence-each-checkbox-3 class="table-of-contents__link toc-highlight">Evidence each checkbox</a></ul><li><a href=#55-unit-testing class="table-of-contents__link toc-highlight">5.5 Unit testing</a><ul><li><a href=#unit-testing-audit-area class="table-of-contents__link toc-highlight">Unit testing audit area</a><li><a href=#why-it-matters-3 class="table-of-contents__link toc-highlight">Why it matters</a><li><a href=#evidence-each-checkbox-4 class="table-of-contents__link toc-highlight">Evidence each checkbox</a></ul><li><a href=#56-robustness class="table-of-contents__link toc-highlight">5.6 Robustness</a><ul><li><a href=#robustness-audit-area class="table-of-contents__link toc-highlight">Robustness audit area</a><li><a href=#why-it-matters-4 class="table-of-contents__link toc-highlight">Why it matters</a><li><a href=#evidence-each-checkbox-5 class="table-of-contents__link toc-highlight">Evidence each checkbox</a></ul><li><a href=#57-oss-compliance class="table-of-contents__link toc-highlight">5.7 OSS compliance</a><ul><li><a href=#oss-compliance-audit-area class="table-of-contents__link toc-highlight">OSS compliance audit area</a><li><a href=#why-it-matters-5 class="table-of-contents__link toc-highlight">Why it matters</a><li><a href=#evidence-each-checkbox-6 class="table-of-contents__link toc-highlight">Evidence each checkbox</a></ul><li><a href=#58-defects-and-deviations class="table-of-contents__link toc-highlight">5.8 Defects and deviations</a><ul><li><a href=#defects-and-deviations-audit-area class="table-of-contents__link toc-highlight">Defects and deviations audit area</a><li><a href=#why-it-matters-6 class="table-of-contents__link toc-highlight">Why it matters</a><li><a href=#evidence-each-checkbox-7 class="table-of-contents__link toc-highlight">Evidence each checkbox</a></ul><li><a href=#59-gates-and-release class="table-of-contents__link toc-highlight">5.9 Gates and release</a><ul><li><a href=#gates-and-release-audit-area class="table-of-contents__link toc-highlight">Gates and release audit area</a><li><a href=#why-it-matters-7 class="table-of-contents__link toc-highlight">Why it matters</a><li><a href=#evidence-each-checkbox-8 class="table-of-contents__link toc-highlight">Evidence each checkbox</a></ul></ul><li><a href=#6-audit-reporting class="table-of-contents__link toc-highlight">6. Audit reporting</a><ul><li><a href=#the-audit-report-structure class="table-of-contents__link toc-highlight">The audit report structure</a><li><a href=#why-a-structured-report-is-mandatory class="table-of-contents__link toc-highlight">Why a structured report is mandatory</a><li><a href=#produce-and-close-the-report class="table-of-contents__link toc-highlight">Produce and close the report</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Documentation</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/docs>Overview</a><li class=footer__item><a class=footer__link-item href=/docs/category/governance--framework>Governance & Framework</a><li class=footer__item><a class=footer__link-item href=/docs/category/engineering-guidelines>Engineering Guidelines</a><li class=footer__item><a class=footer__link-item href=/docs/category/assurance-audit--release>Assurance, Audit & Release</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Standards</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://www.automotivespice.com/ target=_blank rel="noopener noreferrer" class=footer__link-item>ASPICE / PAM<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://www.iso.org/standard/68383.html target=_blank rel="noopener noreferrer" class=footer__link-item>ISO 26262 Functional Safety<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://misra.org.uk/ target=_blank rel="noopener noreferrer" class=footer__link-item>MISRA C/C++<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>More</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://github.com/your-github-username/code-quality-management target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub Repository<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://docusaurus.io/ target=_blank rel="noopener noreferrer" class=footer__link-item>Docusaurus<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>Copyright © 2026 Code Quality Management. Built with Docusaurus.</div></div></div></footer></div></body>

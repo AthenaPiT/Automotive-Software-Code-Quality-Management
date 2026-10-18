@@ -1,0 +1,340 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-guidelines/code-review" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.2"><title data-rh=true>Code Review Guideline | Code Quality Management</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:image content=https://codequality.yourdomain.com/img/CodeQuality.png /><meta data-rh=true name=twitter:image content=https://codequality.yourdomain.com/img/CodeQuality.png /><meta data-rh=true property=og:url content=https://codequality.yourdomain.com/docs/guidelines/code-review /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="Code Review Guideline | Code Quality Management"/><meta data-rh=true name=description content="Formal code review as a separate quality control: process, criteria and evidence."/><meta data-rh=true property=og:description content="Formal code review as a separate quality control: process, criteria and evidence."/><link data-rh=true rel=icon href=/img/favicon.png /><link data-rh=true rel=canonical href=https://codequality.yourdomain.com/docs/guidelines/code-review /><link data-rh=true rel=alternate href=https://codequality.yourdomain.com/docs/guidelines/code-review hreflang=en /><link data-rh=true rel=alternate href=https://codequality.yourdomain.com/docs/guidelines/code-review hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://codequality.yourdomain.com/docs/category/engineering-guidelines","name":"Engineering Guidelines","position":1},{"@type":"ListItem","item":"https://codequality.yourdomain.com/docs/guidelines/code-review","name":"Code Review","position":2}]}</script><link rel=stylesheet href=/assets/css/styles.64bfa2f9.css /><script src=/assets/js/runtime~main.62772378.js defer></script><script src=/assets/js/main.ff7524c2.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-3d2")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"dark"),document.documentElement.setAttribute("data-theme-choice",t||"dark")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><link rel=preload as=image href=/img/CodeQuality.png /><div role=region aria-label="Skip to main content"><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/CodeQuality.png alt="Code Quality Management Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"/><img src=/img/CodeQuality.png alt="Code Quality Management Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"/></div><b class="navbar__title text--truncate">Code Quality Management</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/docs>Documentation</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/your-github-username/code-quality-management target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/docs><span class=linkLabel_WmDU>Overview</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/governance--framework><span class=categoryLinkLabel_W154>Governance & Framework</span></a><button aria-label="Collapse sidebar category 'Governance & Framework'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/governance/framework><span class=linkLabel_WmDU>Framework</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/governance/management-procedure><span class=linkLabel_WmDU>Management Procedure</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href=/docs/category/engineering-guidelines><span class=categoryLinkLabel_W154>Engineering Guidelines</span></a><button aria-label="Collapse sidebar category 'Engineering Guidelines'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/guidelines/coding-standards-rule-catalogue><span class=linkLabel_WmDU>Coding Standards & Rule Catalogue</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/guidelines/static-analysis-toolchain><span class=linkLabel_WmDU>Static Analysis & Toolchain</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/docs/guidelines/code-review><span class=linkLabel_WmDU>Code Review</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/guidelines/unit-testing><span class=linkLabel_WmDU>Unit Testing</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/guidelines/robustness-verification><span class=linkLabel_WmDU>Robustness Verification</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/guidelines/oss-compliance><span class=linkLabel_WmDU>OSS Compliance</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/assurance-audit--release><span class=categoryLinkLabel_W154>Assurance, Audit & Release</span></a><button aria-label="Collapse sidebar category 'Assurance, Audit & Release'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/assurance/defect-escalation-deviation><span class=linkLabel_WmDU>Defect Escalation & Deviation</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/assurance/qa-audit-checklist><span class=linkLabel_WmDU>QA & Audit Checklist</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/assurance/release-quality-checklist><span class=linkLabel_WmDU>Release Quality Checklist</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/assurance/quality-dashboard><span class=linkLabel_WmDU>Quality Dashboard</span></a></ul></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/docs/category/engineering-guidelines><span>Engineering Guidelines</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>Code Review</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Code Review Guideline</h1></header><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=1-purpose>1. Purpose<a href=#1-purpose class=hash-link aria-label="Direct link to 1. Purpose" title="Direct link to 1. Purpose" translate=no>​</a></h2>
+<p>Automated analysis cannot reliably identify every architectural, algorithmic, functional or maintainability problem. Formal code review is therefore a <strong>separate quality control</strong> with its own process, criteria and evidence.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=scope-of-code-review-as-a-control>Scope of code review as a control<a href=#scope-of-code-review-as-a-control class=hash-link aria-label="Direct link to Scope of code review as a control" title="Direct link to Scope of code review as a control" translate=no>​</a></h4>
+<p>This document defines <strong>formal code review</strong> — a documented, independent examination of newly developed or modified production source code against defined criteria, producing findings with severity, owner and closure evidence. It is one of the two Engineering-Assurance workstreams in Layer 2B (peer reviews, independent verification) alongside robustness assessment (Doc 06), and it is the control exercised at Quality Gate <strong>G2 — Code review (before merging)</strong>. It is explicitly <em>not</em> a pull-request "LGTM" button click, not a static-analysis pass (Doc 03), and not the developer's own self-check (G1). It covers in-house code and, under controlled provenance rules, third-party/generated code (see §2).</p>
+<ul>
+<li class="">
+<p><strong>Automated tools have a ceiling:</strong> static analysis (Doc 03) finds rule violations and many unsafe patterns, but it cannot judge whether the implementation <em>correctly realizes the requirement</em>, whether the design trade-off is sound, or whether error handling is coherent across a module. Automotive SPICE 4.0 SWE.4 (software unit verification) and SWE.5 (software integration verification) expect verification that goes beyond tool execution; peer review is the human verification layer that catches design and logic defects.</p>
+</li>
+<li class="">
+<p><strong>Early, cheap defect removal:</strong> a defect found at G2 is fixed before integration; the same defect found at G4/G5 or by the customer costs an order of magnitude more to fix and risks release delay or an escaped defect (Doc 10 metric).</p>
+</li>
+<li class="">
+<p><strong>Independent judgment:</strong> Doc 01 §5.1 defines L2 (Peer Reviewer / Technical Lead) as an independent level of control; the control rule (Doc 01 §5.2 / Doc 09 §4.2) requires that a reviewer must not approve their own code. This guideline operationalizes that independence at G2.</p>
+</li>
+<li class="">
+<p><strong>Knowledge transfer and consistency:</strong> review is the mechanism by which coding standards (Doc 02) are applied case-by-case and by which design decisions are shared — it supports the MISRA C/C++ and AUTOSAR C++14 "guideline adherence" expectation beyond what the tool enforces.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=establish-code-review-on-a-project>Establish code review on a project<a href=#establish-code-review-on-a-project class=hash-link aria-label="Direct link to Establish code review on a project" title="Direct link to Establish code review on a project" translate=no>​</a></h4>
+<ol>
+<li class="">
+<p><strong>Freeze the review baseline at G0:</strong> record the review roles (developer = author/submitter; reviewer = independent L2; technical lead = merge authorizer per Doc 01 §5.2), the review checklist (§4 seven dimensions), and the entry/exit criteria (§3) in the project quality plan. Do not start development with "we'll review somehow."</p>
+</li>
+<li class="">
+<p><strong>Configure the tool chain:</strong> a merge request / pull request system wired so that (a) CI pre-checks (build, static analysis, unit tests) must be green before the review button is usable; (b) at least one independent reviewer approval is a hard merge condition; (c) the review record (findings, severity, closure) is retained and linked to the revision.</p>
+</li>
+<li class="">
+<p><strong>Calibrate reviewers:</strong> run one calibration session using a sample change so reviewers apply the §4 dimensions and the finding severity model (Doc 02 §7.3) consistently — inconsistent severity is the most common reason review data is useless for metrics.</p>
+</li>
+<li class="">
+<p><strong>Tailor, don't weaken:</strong> per Doc 01 §2 tailoring rule, low-risk modules may get lighter review (e.g., a single reviewer, a focused checklist), but the mandatory controls — independent reviewer, findings traced to closure, merge blocked at G2 — may never be removed. Any relaxation goes through the deviation path (Doc 09).</p>
+</li>
+<li class="">
+<p><strong>Acceptance / exit for setup:</strong> roles named; checklist adopted; CI gate enforced; one dry-run review completed and recorded; reviewers trained.</p>
+</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=2-review-scope>2. Review scope<a href=#2-review-scope class=hash-link aria-label="Direct link to 2. Review scope" title="Direct link to 2. Review scope" translate=no>​</a></h2>
+<p>Review all <strong>newly developed or modified production source code</strong> and associated changes to:</p>
+<table><thead><tr><th>Area<th>What is reviewed<tbody><tr><td>Logic<td>Interfaces, algorithms, state transitions<tr><td>Resource safety<td>Memory management, concurrency, error handling<tr><td>Traceability<td>Requirements traceability, relevant design consistency<tr><td>Tests<td>Tests, test doubles, test configurations, coverage exclusions<tr><td>Build<td>Build scripts, compiler settings, static-analysis configuration<tr><td>Dependencies<td>Dependency declarations, generated code, third-party integrations</table>
+<p><strong>Generated and imported third-party code</strong> may use different review methods (e.g., provenance-based assessment instead of line-by-line), but must <strong>not</strong> become uncontrolled exclusions. Their provenance, verification, ownership and applicable compliance obligations must be defined.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=the-six-review-areas>The six review areas<a href=#the-six-review-areas class=hash-link aria-label="Direct link to The six review areas" title="Direct link to The six review areas" translate=no>​</a></h4>
+<p>The table defines the <strong>object universe</strong> of review. "Newly developed or modified production source code" is the trigger — not every line in the repository is re-reviewed on every change; the delta (the change under review) plus its interaction with touched interfaces is in scope. The six areas break the delta down so a reviewer does not miss a category: <em>Logic</em> (does the code do the right thing), <em>Resource safety</em> (does it not break the machine), <em>Traceability</em> (can it be linked back to requirements/design), <em>Tests</em> (is the verification itself adequate), <em>Build</em> (is the change reproducible), and <em>Dependencies</em> (what does it pull in).</p>
+<ul>
+<li class="">
+<p><strong>No single dimension is enough:</strong> a change can be logically correct, pass all tools, and still be wrong because it breaks traceability (ASPICE traceability expectation across SWE.1–SWE.6), or because its own tests are weak, or because it silently changes compiler flags. The six-area model forces the reviewer to look at the whole change, not just the code diff.</p>
+</li>
+<li class="">
+<p><strong>Tests and build are part of the product:</strong> automotive deliverables include test code and build configuration; Doc 01 §2 puts build scripts and test code explicitly in scope. Reviewing them prevents "the fix works but the build is no longer reproducible" escapes.</p>
+</li>
+<li class="">
+<p><strong>Dependency scope is a security/compliance control:</strong> a new dependency declaration is the entry point for OSS compliance (Doc 07) and supply-chain risk (ISO/SAE 21434, NIST SSDF); reviewing it at G2 prevents un-vetted components entering the codebase.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=apply-the-six-areas-to-a-change>Apply the six areas to a change<a href=#apply-the-six-areas-to-a-change class=hash-link aria-label="Direct link to Apply the six areas to a change" title="Direct link to Apply the six areas to a change" translate=no>​</a></h4>
+<ol>
+<li class="">
+<p><strong>Logic:</strong> check interfaces (pre/post conditions, parameter validity, return-value semantics), algorithm correctness vs. the detailed design, and state transitions (invalid/unexpected transitions). <em>Exit:</em> every interface touched has a documented behavior; no state transition is left implicit.</p>
+</li>
+<li class="">
+<p><strong>Resource safety:</strong> check memory allocation/deallocation pairing, concurrency (shared-state access, locking order), and error-handling paths (every error branch releases resources — links to Doc 06 robustness criteria). <em>Exit:</em> no resource leak or lock-ordering issue on error paths.</p>
+</li>
+<li class="">
+<p><strong>Traceability:</strong> verify the change is linked to a requirement/design element in the trace table (Doc 05 §6 format) and is consistent with the relevant design. <em>Exit:</em> every functional delta traces to a requirement ID.</p>
+</li>
+<li class="">
+<p><strong>Tests:</strong> review new/changed tests for adequacy (positive, negative, boundary, error paths), test doubles that hide behavior, and coverage exclusions (justified per Doc 05 §3.1). <em>Exit:</em> tests reviewed, not merely present.</p>
+</li>
+<li class="">
+<p><strong>Build:</strong> check build-script changes, compiler warning/flag changes, static-analysis configuration changes (Doc 03) — these affect reproducibility. <em>Exit:</em> build changes explained and version-controlled.</p>
+</li>
+<li class="">
+<p><strong>Dependencies:</strong> check new/changed dependency declarations and generated code; route new OSS components through Doc 07 before they merge. <em>Exit:</em> dependency provenance and license declared.</p>
+</li>
+</ol>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=reviewing-generated--third-party-code>Reviewing generated / third-party code<a href=#reviewing-generated--third-party-code class=hash-link aria-label="Direct link to Reviewing generated / third-party code" title="Direct link to Reviewing generated / third-party code" translate=no>​</a></h4>
+<p>Line-by-line review of generated code or imported third-party code is neither feasible nor valuable. Instead, apply a <strong>provenance-based assessment</strong>:</p>
+<table><thead><tr><th>Question<th>Required evidence<tbody><tr><td>Where did it come from?<td>Component origin, version, integrity (hash/signature) — Doc 07 provenance control<tr><td>Was it verified already?<td>Existing test results, SBOM entry, prior assessment record<tr><td>Who owns it going forward?<td>Named owner for defects, updates, security patches<tr><td>What compliance obligations apply?<td>License classification (Doc 07 §4), attribution/copyleft handling<tr><td>Is it re-generable?<td>If generated: generator version and input stored so output is reproducible</table>
+<p><em>Exit criterion:</em> a generated/third-party block is never merged with "we don't need to review it" — it merges only with the provenance record above filed. This is the explicit control against "uncontrolled exclusions."</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=3-review-process-six-steps>3. Review process (six steps)<a href=#3-review-process-six-steps class=hash-link aria-label="Direct link to 3. Review process (six steps)" title="Direct link to 3. Review process (six steps)" translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-background-color:hsl(220, 13%, 18%);--prism-color:hsl(220, 14%, 71%)"><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="background-color:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3)"><code class=codeBlockLines_e6Vv><div class=token-line style="color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3)"><span class="token plain">1 Review initiation → 2 Automated pre-checks → 3 Independent technical review</span><br/></div><div class=token-line style="color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3)"><span class="token plain">   → 4 Finding classification → 5 Correction & re-review → 6 Approval & traceability</span><br/></div></code></pre></div></div>
+<table><thead><tr><th>Step<th>Actions<th>Owner<tbody><tr><td><strong>1. Review initiation</strong><td>Developer creates a review request: change purpose, linked requirements, affected modules, risk classification<td>Developer<tr><td><strong>2. Automated pre-checks</strong><td>Build, static analysis, applicable unit tests, basic policy checks run before formal approval<td>CI/CD (auto)<tr><td><strong>3. Independent technical review</strong><td>Reviewer examines functionality, design consistency, error handling, readability, security, test adequacy<td>Reviewer<tr><td><strong>4. Finding classification</strong><td>Each finding recorded: location, evidence, severity, owner, required resolution<td>Reviewer<tr><td><strong>5. Correction and re-review</strong><td>Author corrects defects, adds regression tests where applicable, obtains reviewer confirmation<td>Developer + Reviewer<tr><td><strong>6. Approval and traceability</strong><td>Merge only after required approvals, checks and evidence are complete<td>Reviewer / Technical lead</table>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=the-six-step-lifecycle>The six-step lifecycle<a href=#the-six-step-lifecycle class=hash-link aria-label="Direct link to The six-step lifecycle" title="Direct link to The six-step lifecycle" translate=no>​</a></h4>
+<p>The process is <strong>mandatory and sequential</strong> for every change that passes G1. Step 1 (initiation) is the developer's request carrying mandatory metadata; step 2 is the automated gate (build/SAST/unit tests) that must pass before a human reviewer spends time; step 3 is the core independent examination; step 4 turns observations into classified, tracked findings; step 5 is the correction loop; step 6 is the authorized merge with evidence. Owners are fixed per the table — the developer may <em>not</em> self-approve at step 6 (Doc 01 §5.2: merge authorization is reviewer / technical lead).</p>
+<ul>
+<li class="">
+<p><strong>Automated pre-checks first (step 2):</strong> having the reviewer read a change that does not build or fails static analysis wastes the scarcest resource (independent expert time) and normalizes low-quality submissions. This is the CI discipline expected by NIST SSDF and ASPICE SWE.6.</p>
+</li>
+<li class="">
+<p><strong>Classification, not commentary (step 4):</strong> unrecorded review comments evaporate; a finding without severity, owner and required resolution is not a control. Classification feeds defect tracking (Doc 09) and the review-effectiveness metrics (§6).</p>
+</li>
+<li class="">
+<p><strong>Merge only after evidence (step 6):</strong> G2 decision is "Merge permitted" — the evidence that made it permitted (approvals, green automated checks, closed findings) is the record the G4/G5 board reads (Doc 11).</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=execute-each-step>Execute each step<a href=#execute-each-step class=hash-link aria-label="Direct link to Execute each step" title="Direct link to Execute each step" translate=no>​</a></h4>
+<ol>
+<li class="">
+<p><strong>Step 1 — Review initiation (Developer).</strong> Open the review request with: change purpose (one paragraph), linked requirement/design IDs, affected modules/files, and self-classified risk (per §5.3). <em>Exit:</em> request carries all four metadata fields; without them the reviewer may return it un-reviewed.</p>
+</li>
+<li class="">
+<p><strong>Step 2 — Automated pre-checks (CI/CD, auto).</strong> Run build, static analysis (Doc 03 rule-pack), applicable unit tests (Doc 05), and policy checks (dependency/OSS scan per Doc 07). <em>Exit:</em> all green; any failure returns the change to the developer at G1 — no human review of a red build.</p>
+</li>
+<li class="">
+<p><strong>Step 3 — Independent technical review (Reviewer).</strong> Walk the change against the §4 seven dimensions and the §2 six areas. Read the surrounding code, not just the diff. <em>Exit:</em> findings noted with file/line evidence.</p>
+</li>
+<li class="">
+<p><strong>Step 4 — Finding classification (Reviewer).</strong> Record each finding: location, evidence, severity (Critical/Major/Minor per Doc 02 §7.3 problem types), owner (the author, unless reassigned), and required resolution. <em>Exit:</em> every observation is a tracked finding, not a chat comment.</p>
+</li>
+<li class="">
+<p><strong>Step 5 — Correction and re-review (Developer + Reviewer).</strong> Author fixes, adds a regression test where the defect is behavioral, and requests re-review. Reviewer verifies the fix and that no new issue was introduced. <em>Exit:</em> Critical/Major findings closed and verified.</p>
+</li>
+<li class="">
+<p><strong>Step 6 — Approval and traceability (Reviewer / Technical lead).</strong> Once approvals, automated checks and evidence are complete, the reviewer (or technical lead for high-risk changes per §5.2) authorizes the merge; the review record is linked to the merged revision. <em>Exit:</em> merge permitted at G2; record archived against the exact revision (Doc 01 §8).</p>
+</li>
+</ol>
+<p><strong>Worked micro-example (illustrative):</strong> A developer modifies the CAN receive handler. Step 1 request links it to REQ-2201 and self-classifies it high-risk (network code). Step 2: build green, static analysis flags one un-bounds-checked index (Doc 03) — returned to developer, fixed, re-run green. Step 3: reviewer examines the handler and finds the error path leaks a buffer when the message is malformed. Step 4: finding classified Major, owner = author. Step 5: author adds the cleanup plus a negative test (malformed frame) and re-requests; reviewer verifies. Step 6: because the change touches safety-relevant network code, two independent reviewers approve per §5.2; merged; review record linked to the revision. The Major finding feeds Doc 09 lifecycle and the robustness test feeds Doc 06.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=4-review-criteria--seven-dimensions>4. Review criteria — seven dimensions<a href=#4-review-criteria--seven-dimensions class=hash-link aria-label="Direct link to 4. Review criteria — seven dimensions" title="Direct link to 4. Review criteria — seven dimensions" translate=no>​</a></h2>
+<p>A formal checklist assesses these seven dimensions for every review.</p>
+<table><thead><tr><th>Dimension<th>Key questions<tbody><tr><td><strong>Requirements and design</strong><td>Does the implementation correctly realize the requirements and detailed design?<tr><td><strong>Functional correctness</strong><td>Are algorithms, conditions, state transitions and return values correct?<tr><td><strong>Coding standards</strong><td>Are mandatory rules followed; are deviations formally controlled?<tr><td><strong>Robustness</strong><td>Are null values, boundary conditions, resource failures and abnormal inputs handled?<tr><td><strong>Security</strong><td>Is input validated, data protected, and access and error handling appropriate?<tr><td><strong>Maintainability</strong><td>Is the code understandable, modular, testable and appropriately documented?<tr><td><strong>Verification</strong><td>Do tests cover relevant behavior, boundaries and failure paths? Is traceability maintained?</table>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=the-seven-dimension-checklist>The seven-dimension checklist<a href=#the-seven-dimension-checklist class=hash-link aria-label="Direct link to The seven-dimension checklist" title="Direct link to The seven-dimension checklist" translate=no>​</a></h4>
+<p>These seven dimensions are the <strong>formal checklist</strong> applied to every review — they are not a suggested reading list. Each dimension is a distinct lens: <em>requirements/design</em> (correctness against intent), <em>functional correctness</em> (the code itself), <em>coding standards</em> (Doc 02 mandatory rules), <em>robustness</em> (abnormal conditions, links to Doc 06), <em>security</em> (validation/protection, links to ISO/SAE 21434 secure-coding), <em>maintainability</em> (future cost), and <em>verification</em> (is the test adequate). A review that only checks coding standards is incomplete.</p>
+<ul>
+<li class="">
+<p><strong>Completeness over gut feel:</strong> without a fixed checklist, reviewers focus on what they personally find interesting — typically style and naming — and miss robustness/security/verification. The seven dimensions are the established automotive verification expectation (ISO 26262-6 §9-10 verification and ASPICE SWE.4 unit verification expect adequacy against defined criteria, not subjective review).</p>
+</li>
+<li class="">
+<p><strong>Standard alignment:</strong> coding-standards dimension operationalizes MISRA C/C++ and AUTOSAR C++14 adherence where the tool cannot judge; robustness and security dimensions connect review to Doc 06 and ISO/SAE 21434.</p>
+</li>
+<li class="">
+<p><strong>Evidence for assessment:</strong> an ASPICE assessor samples review records to verify they were performed against defined criteria; a checklist with sign-off per dimension is that evidence.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=use-the-checklist>Use the checklist<a href=#use-the-checklist class=hash-link aria-label="Direct link to Use the checklist" title="Direct link to Use the checklist" translate=no>​</a></h4>
+<ol>
+<li class="">
+<p><strong>Pre-fill the checklist:</strong> in the review tool, create a per-dimension sign-off (Pass / Concern raised) so the reviewer must explicitly address each dimension rather than give a global "approve."</p>
+</li>
+<li class="">
+<p><strong>Per-dimension focus prompts (add to the tool):</strong></p>
+</li>
+</ol>
+<table><thead><tr><th>Dimension<th>Reviewer must confirm<tbody><tr><td>Requirements and design<td>Change traces to REQ/design IDs; no undocumented behavior added<tr><td>Functional correctness<td>Conditions/state transitions/return values match design; edge logic traced<tr><td>Coding standards<td>No un-controlled mandatory-rule violations (Doc 02); any deviation raised via Doc 09<tr><td>Robustness<td>Null, boundary, resource-failure, abnormal-input paths handled (see Doc 06)<tr><td>Security<td>External input validated; sensitive data not exposed; error paths do not leak info (ISO/SAE 21434)<tr><td>Maintainability<td>Naming, modularity, complexity within thresholds; comments explain <em>why</em><tr><td>Verification<td>New behavior has tests covering behavior/boundaries/failure paths; trace table updated</table>
+<ol>
+<li class=""><strong>Sign-off:</strong> a dimension is "Pass" only when its prompts are answered; "Concern raised" becomes a tracked finding (step 4). <em>Exit:</em> all seven dimensions explicitly assessed; Critical/Major concerns closed before approval.</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=5-risk-based-review-depth>5. Risk-based review depth<a href=#5-risk-based-review-depth class=hash-link aria-label="Direct link to 5. Risk-based review depth" title="Direct link to 5. Risk-based review depth" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=51-when-to-apply-stronger-review>5.1 When to apply stronger review<a href=#51-when-to-apply-stronger-review class=hash-link aria-label="Direct link to 5.1 When to apply stronger review" title="Direct link to 5.1 When to apply stronger review" translate=no>​</a></h3>
+<p>Apply stronger requirements to:</p>
+<ul>
+<li class="">
+<p>Safety-related (ASIL-classified) or security-sensitive modules;</p>
+</li>
+<li class="">
+<p>Memory-management and concurrency code;</p>
+</li>
+<li class="">
+<p>Complex algorithms;</p>
+</li>
+<li class="">
+<p>Boot / update mechanisms;</p>
+</li>
+<li class="">
+<p>Changes with broad system impact.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=stronger-review-trigger-set>Stronger-review trigger set<a href=#stronger-review-trigger-set class=hash-link aria-label="Direct link to Stronger-review trigger set" title="Direct link to Stronger-review trigger set" translate=no>​</a></h4>
+<p>This is the <strong>list of change/module classes that receive elevated review rigor</strong> (per §5.2 measures), rather than the standard single-reviewer process. It is the risk-basis for depth: safety (ASIL per ISO 26262), security (per ISO/SAE 21434), memory/concurrency (the classic defect-density hotspots), complex algorithms (logic-error density), boot/update (wrong = bricked vehicle), and broad-impact changes (ripple effects).</p>
+<ul>
+<li class="">
+<p><strong>Rigour follows risk:</strong> applying identical review depth to a one-line UI string and the boot manager is both wasteful and ineffective — the one-liner gets over-reviewed while the boot path is under-reviewed. ISO 26262 requires verification methods be commensurate with ASIL; ISO/SAE 21434 ties rigor to attack surface.</p>
+</li>
+<li class="">
+<p><strong>Where defects hurt most:</strong> memory-management and concurrency defects are the leading cause of field failures and safety/security incidents; boot/update defects are unrecoverable once shipped. Elevated review here is cost-effective defect prevention.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=classify-a-change-for-depth>Classify a change for depth<a href=#classify-a-change-for-depth class=hash-link aria-label="Direct link to Classify a change for depth" title="Direct link to Classify a change for depth" translate=no>​</a></h4>
+<ol>
+<li class="">
+<p>At step 1 (initiation), the developer self-classifies against the five triggers; the reviewer/QA confirms.</p>
+</li>
+<li class="">
+<p>If <strong>any</strong> trigger matches → the change moves to the §5.2 elevated measures; otherwise standard review applies.</p>
+</li>
+<li class="">
+<p>QA maintains a <strong>module risk register</strong> (which modules are ASIL-classified, security-sensitive, boot/update) so classification is data-driven, not a guess at review time. <em>Exit:</em> every change carries a documented risk class; elevated changes get the §5.2 measures.</p>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=52-escalated-review-measures-for-high-risk-changes>5.2 Escalated review measures for high-risk changes<a href=#52-escalated-review-measures-for-high-risk-changes class=hash-link aria-label="Direct link to 5.2 Escalated review measures for high-risk changes" title="Direct link to 5.2 Escalated review measures for high-risk changes" translate=no>​</a></h3>
+<table><thead><tr><th>Measure<th>When<th>Who<tbody><tr><td>Two independent reviewers<td>High-risk change<td>QA assigns<tr><td>Formal technical review meeting<td>High-risk, complex, or safety-relevant<td>Technical lead chairs<tr><td>Additional static-analysis investigation<td>Deep data-flow / security concern<td>QA / security engineer<tr><td>Focused robustness testing<td>Memory / concurrency / fault handling<td>Test engineer</table>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=elevated-measures>Elevated measures<a href=#elevated-measures class=hash-link aria-label="Direct link to Elevated measures" title="Direct link to Elevated measures" translate=no>​</a></h4>
+<p>These four measures are the <strong>concrete controls that define "stronger review."</strong> Two independent reviewers (no single-person approval), a formal review meeting (collaborative examination for complex/safety changes), targeted static-analysis investigation (deep data-flow/security beyond the standard rule-pack run), and focused robustness testing (Doc 06 methods applied to the specific change). They are additive — standard review still happens; these are layered on top.</p>
+<ul>
+<li class="">
+<p><strong>Two reviewers reduce individual miss-rate:</strong> human review has a known miss rate; two independent reviewers materially raise defect detection (consistent with ISO 26262 independence expectations for safety-relevant verification).</p>
+</li>
+<li class="">
+<p><strong>Meeting for complexity:</strong> complex algorithms and safety-relevant changes benefit from shared examination; a meeting produces a collective decision and its record.</p>
+</li>
+<li class="">
+<p><strong>Targeted tools for targeted risk:</strong> deep data-flow/security concerns are exactly where standard static-analysis rules are weak; a focused investigation by QA/security is the right tool.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=apply-the-measures>Apply the measures<a href=#apply-the-measures class=hash-link aria-label="Direct link to Apply the measures" title="Direct link to Apply the measures" translate=no>​</a></h4>
+<table><thead><tr><th>Measure<th>Trigger condition<th>Execution<th>Evidence<tbody><tr><td>Two independent reviewers<td>High-risk change per §5.1/§5.3<td>QA assigns a second reviewer who did not author and is independent per Doc 01 §5.2<td>Two approvals recorded<tr><td>Formal technical review meeting<td>High-risk, complex, or safety-relevant<td>Technical lead chairs; author, reviewers, QA attend; findings logged in the review record<td>Meeting minutes + findings list<tr><td>Additional static-analysis investigation<td>Deep data-flow/security concern<td>QA/security engineer runs targeted analyzer queries (e.g., taint on external input) beyond CI rule-pack<td>Investigation report linked to review<tr><td>Focused robustness testing<td>Memory/concurrency/fault handling<td>Test engineer adds Doc 06 negative/fault-injection cases around the change<td>New robustness tests + results</table>
+<p><em>Exit:</em> for a high-risk change, the required measures per the risk register are all executed; missing a required measure blocks approval at step 6.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=53-how-to-decide-high-risk-practical>5.3 How to decide "high risk" (practical)<a href=#53-how-to-decide-high-risk-practical class=hash-link aria-label='Direct link to 5.3 How to decide "high risk" (practical)' title='Direct link to 5.3 How to decide "high risk" (practical)' translate=no>​</a></h3>
+<p>A change is high-risk if <strong>any</strong> of the following is true:</p>
+<ul>
+<li class="">
+<p>touches safety-related or security-critical functionality;</p>
+</li>
+<li class="">
+<p>modifies shared infrastructure, boot, or update paths;</p>
+</li>
+<li class="">
+<p>changes concurrency, memory management, or error-handling patterns;</p>
+</li>
+<li class="">
+<p>exceeds a defined complexity/scale threshold (e.g., > <strong>[TBD by org]</strong> changed lines, > <strong>[TBD]</strong> changed files);</p>
+</li>
+<li class="">
+<p>requires a deviation to a mandatory rule.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=the-high-risk-decision-rule>The high-risk decision rule<a href=#the-high-risk-decision-rule class=hash-link aria-label="Direct link to The high-risk decision rule" title="Direct link to The high-risk decision rule" translate=no>​</a></h4>
+<p>This is the <strong>operational, binary test</strong>: "any of these five is true → high-risk." The first three are content-based (safety/security, infrastructure/boot/update, concurrency/memory/error-handling patterns); the fourth is a size/complexity trigger; the fifth is a governance trigger (a deviation request itself signals elevated risk). It intentionally uses <strong>any</strong> (OR), not "all," so that a change only needs one match to get elevated treatment.</p>
+<ul>
+<li class="">
+<p><strong>Objective boundary:</strong> without a defined threshold, "high risk" becomes a debate at review time. The fifth trigger (deviation required) is critical: any change asking to waive a mandatory rule is, by definition, a risk decision and must get elevated scrutiny — this connects review to the deviation process (Doc 09) and the independence rule.</p>
+</li>
+<li class="">
+<p><strong>Size as a proxy:</strong> very large changes are harder to review thoroughly and carry higher integration risk; a line/file threshold (after pilot) forces decomposition or elevated review.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=apply-and-set-the-thresholds>Apply and set the thresholds<a href=#apply-and-set-the-thresholds class=hash-link aria-label="Direct link to Apply and set the thresholds" title="Direct link to Apply and set the thresholds" translate=no>​</a></h4>
+<ol>
+<li class="">
+<p><strong>Apply the five tests at step 1</strong> and record the matched reason (e.g., "matches trigger 2: boot path").</p>
+</li>
+<li class="">
+<p><strong>Set the numeric thresholds by pilot, not by guess:</strong></p>
+<ul>
+<li class="">
+<p>Propose initial line/file limits based on past review capacity.</p>
+</li>
+<li class="">
+<p>Pilot on representative changes: measure how many changes would be flagged, reviewer throughput, and defect escape rates.</p>
+</li>
+<li class="">
+<p>Freeze the numbers in the project quality plan as <strong>[TBD by organization]</strong> → concrete values; re-baseline annually (Doc 10 trend).</p>
+</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Deviation trigger:</strong> if the change requires a deviation to a mandatory rule (Doc 02), it is automatically high-risk regardless of size, and the deviation approval authority (Doc 01 §5.2) is independent of the author.</p>
+</li>
+<li class="">
+<p><em>Exit:</em> every change has a recorded risk class and reason; elevated changes route to §5.2 measures.</p>
+</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=6-review-effectiveness-measurement>6. Review effectiveness measurement<a href=#6-review-effectiveness-measurement class=hash-link aria-label="Direct link to 6. Review effectiveness measurement" title="Direct link to 6. Review effectiveness measurement" translate=no>​</a></h2>
+<p>Review effectiveness is measured by <strong>outcome</strong>, not by the number of approved pull requests:</p>
+<table><thead><tr><th>Metric<th>Definition<th>Use<tbody><tr><td>Findings per review effort<td>Findings per review session / per KLOC reviewed<td>Review thoroughness<tr><td>High-severity defects found<td>Count of Critical/Major findings in review<td>Review value<tr><td>Defect escape rate<td>Defects found later / defects found in review + later<td>Process improvement<tr><td>Rework<td>Re-opened findings / re-reviews per change<td>Review efficiency</table>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=wthe-four-outcome-metrics>WThe four outcome metrics<a href=#wthe-four-outcome-metrics class=hash-link aria-label="Direct link to WThe four outcome metrics" title="Direct link to WThe four outcome metrics" translate=no>​</a></h4>
+<p>These metrics judge <strong>whether review actually finds defects</strong>, not whether reviews happen. <em>Findings per effort</em> measures thoroughness; <em>high-severity defects found</em> measures value (finding style nits is not value); <em>defect escape rate</em> measures how many defects slipped past review to later stages (integration/system/test/release) — this is the link to the escaped-defect concept in Doc 01 §3 and Doc 10; <em>rework</em> (re-opened findings, re-reviews) measures review efficiency and quality of the original finding.</p>
+<ul>
+<li class="">
+<p><strong>Activity ≠ effectiveness:</strong> counting merged pull requests rewards rubber-stamping; measuring escaped defects rewards actually finding issues. This is the continual-improvement feedback loop (README §3: metrics → root causes → rule improvements).</p>
+</li>
+<li class="">
+<p><strong>Assessment input:</strong> ASPICE SUP.1 and ISO 26262 expect verification process effectiveness to be monitored; these metrics are that evidence and feed Doc 10.</p>
+</li>
+<li class="">
+<p><strong>Detecting rubber-stamp review:</strong> a review with zero findings on high-risk code, or a very high rework rate, is a signal of ineffective review — not a sign of clean code.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=how-to--collect-and-use-the-metrics>How-to — Collect and use the metrics<a href=#how-to--collect-and-use-the-metrics class=hash-link aria-label="Direct link to How-to — Collect and use the metrics" title="Direct link to How-to — Collect and use the metrics" translate=no>​</a></h4>
+<ol>
+<li class="">
+<p><strong>Source the data automatically:</strong> the review tool records findings (severity, location), KLOC reviewed, re-opened findings, and re-reviews; defect tracking (Doc 09) records where each defect was first found (review vs. later).</p>
+</li>
+<li class="">
+<p><strong>Compute defect escape rate</strong> per module/quarter: <code>defects found after review ÷ (defects found in review + defects found after)</code>. A rising rate is an escalation trigger (Doc 09 §4.1 "increasing defect escape rate").</p>
+</li>
+<li class="">
+<p><strong>Calibrate findings-per-effort:</strong> an abnormally low finding rate on high-risk code prompts a QA spot-check of review quality rather than assuming clean code.</p>
+</li>
+<li class="">
+<p><strong>Thresholds for action are [TBD by organization]:</strong> pilot the metrics for one cycle, set warning/escalation thresholds, freeze into Doc 10. <em>Exit:</em> metrics reported per release; trend reviewed at G4; out-of-range trends trigger process-effectiveness review.</p>
+</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=7-findings-and-approval-rules>7. Findings and approval rules<a href=#7-findings-and-approval-rules class=hash-link aria-label="Direct link to 7. Findings and approval rules" title="Direct link to 7. Findings and approval rules" translate=no>​</a></h2>
+<ul>
+<li class="">
+<p><strong>No finding is silently dropped</strong> — every finding is classified (Doc 02 §7.3 problem types) and traced to closure.</p>
+</li>
+<li class="">
+<p><strong>Merge is blocked</strong> until required approvals, automated checks and evidence are complete (Gate G2).</p>
+</li>
+<li class="">
+<p><strong>Approval authority</strong> for merge is the reviewer / technical lead; a reviewer must not approve their own code.</p>
+</li>
+<li class="">
+<p><strong>Escalation</strong> of unresolved blocking findings follows Doc 09.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=the-four-approval-rules>The four approval rules<a href=#the-four-approval-rules class=hash-link aria-label="Direct link to The four approval rules" title="Direct link to The four approval rules" translate=no>​</a></h4>
+<p>These are the <strong>hard controls at the end of the review process.</strong> (1) Findings are never silently dropped — every observation is classified and closed; (2) merge is blocked at G2 until approvals + automated checks + evidence are complete; (3) merge authority is reviewer/technical lead and no self-approval; (4) unresolved blocking findings escalate per Doc 09 rather than being negotiated away informally.</p>
+<ul>
+<li class="">
+<p><strong>Prevents the "comment and forget" failure:</strong> unrecorded or unclosed findings are the most common reason review data does not exist at audit time; classification per Doc 02 §7.3 and closure tracing make findings auditable.</p>
+</li>
+<li class="">
+<p><strong>Gate discipline:</strong> README §5 / Doc 01 §6.1 — a failed gate blocks progression; G2's decision is "Merge permitted," which is conditional on exactly the evidence listed.</p>
+</li>
+<li class="">
+<p><strong>Independence:</strong> the no-self-approval rule is the Doc 01 §5.2 / Doc 09 §4.2 control applied to merge — the developer responsible for the code is not the merge authority.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=enforce-the-rules>Enforce the rules<a href=#enforce-the-rules class=hash-link aria-label="Direct link to Enforce the rules" title="Direct link to Enforce the rules" translate=no>​</a></h4>
+<ol>
+<li class="">
+<p><strong>No silent drop:</strong> in the tool, every finding has a status (open/resolved/deferred) and a resolution; a review cannot be approved with open Critical/Major findings. A finding the author disputes is escalated, not deleted.</p>
+</li>
+<li class="">
+<p><strong>Block merge in CI:</strong> configure the merge condition so the build is literally blocked unless required approvals, green automated checks and closed Critical/Major findings are all present — enforcement beats manual discipline.</p>
+</li>
+<li class="">
+<p><strong>No self-approval:</strong> tool rule prevents the author from being counted as the approving reviewer; high-risk changes require two independent approvals (§5.2).</p>
+</li>
+<li class="">
+<p><strong>Escalation path:</strong> an unresolved blocking finding that the author and reviewer cannot resolve escalates per Doc 09 — classified P0–P3 (Doc 01 §9 / Doc 09 §2), routed to the named authority (Doc 01 §5.2), and never decided by the defect owner alone (Doc 09 §4.2 independence rule).</p>
+</li>
+<li class="">
+<p><em>Exit:</em> merged code has (a) independent approval, (b) green automated checks, (c) all Critical/Major findings closed with evidence, (d) any deviation approved per Doc 09. The review record is archived against the exact merged revision.</p>
+</li>
+</ol></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href=https://github.com/your-github-username/code-quality-management/tree/main/docs/guidelines/code-review.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_Z9Sw aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/docs/guidelines/static-analysis-toolchain><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>Static Analysis & Toolchain</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/docs/guidelines/unit-testing><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>Unit Testing</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#1-purpose class="table-of-contents__link toc-highlight">1. Purpose</a><ul><li><a href=#scope-of-code-review-as-a-control class="table-of-contents__link toc-highlight">Scope of code review as a control</a><li><a href=#establish-code-review-on-a-project class="table-of-contents__link toc-highlight">Establish code review on a project</a></ul><li><a href=#2-review-scope class="table-of-contents__link toc-highlight">2. Review scope</a><ul><li><a href=#the-six-review-areas class="table-of-contents__link toc-highlight">The six review areas</a><li><a href=#apply-the-six-areas-to-a-change class="table-of-contents__link toc-highlight">Apply the six areas to a change</a><li><a href=#reviewing-generated--third-party-code class="table-of-contents__link toc-highlight">Reviewing generated / third-party code</a></ul><li><a href=#3-review-process-six-steps class="table-of-contents__link toc-highlight">3. Review process (six steps)</a><ul><li><a href=#the-six-step-lifecycle class="table-of-contents__link toc-highlight">The six-step lifecycle</a><li><a href=#execute-each-step class="table-of-contents__link toc-highlight">Execute each step</a></ul><li><a href=#4-review-criteria--seven-dimensions class="table-of-contents__link toc-highlight">4. Review criteria — seven dimensions</a><ul><li><a href=#the-seven-dimension-checklist class="table-of-contents__link toc-highlight">The seven-dimension checklist</a><li><a href=#use-the-checklist class="table-of-contents__link toc-highlight">Use the checklist</a></ul><li><a href=#5-risk-based-review-depth class="table-of-contents__link toc-highlight">5. Risk-based review depth</a><ul><li><a href=#51-when-to-apply-stronger-review class="table-of-contents__link toc-highlight">5.1 When to apply stronger review</a><ul><li><a href=#stronger-review-trigger-set class="table-of-contents__link toc-highlight">Stronger-review trigger set</a><li><a href=#classify-a-change-for-depth class="table-of-contents__link toc-highlight">Classify a change for depth</a></ul><li><a href=#52-escalated-review-measures-for-high-risk-changes class="table-of-contents__link toc-highlight">5.2 Escalated review measures for high-risk changes</a><ul><li><a href=#elevated-measures class="table-of-contents__link toc-highlight">Elevated measures</a><li><a href=#apply-the-measures class="table-of-contents__link toc-highlight">Apply the measures</a></ul><li><a href=#53-how-to-decide-high-risk-practical class="table-of-contents__link toc-highlight">5.3 How to decide "high risk" (practical)</a><ul><li><a href=#the-high-risk-decision-rule class="table-of-contents__link toc-highlight">The high-risk decision rule</a><li><a href=#apply-and-set-the-thresholds class="table-of-contents__link toc-highlight">Apply and set the thresholds</a></ul></ul><li><a href=#6-review-effectiveness-measurement class="table-of-contents__link toc-highlight">6. Review effectiveness measurement</a><ul><li><a href=#wthe-four-outcome-metrics class="table-of-contents__link toc-highlight">WThe four outcome metrics</a><li><a href=#how-to--collect-and-use-the-metrics class="table-of-contents__link toc-highlight">How-to — Collect and use the metrics</a></ul><li><a href=#7-findings-and-approval-rules class="table-of-contents__link toc-highlight">7. Findings and approval rules</a><ul><li><a href=#the-four-approval-rules class="table-of-contents__link toc-highlight">The four approval rules</a><li><a href=#enforce-the-rules class="table-of-contents__link toc-highlight">Enforce the rules</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Documentation</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/docs>Overview</a><li class=footer__item><a class=footer__link-item href=/docs/category/governance--framework>Governance & Framework</a><li class=footer__item><a class=footer__link-item href=/docs/category/engineering-guidelines>Engineering Guidelines</a><li class=footer__item><a class=footer__link-item href=/docs/category/assurance-audit--release>Assurance, Audit & Release</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Standards</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://www.automotivespice.com/ target=_blank rel="noopener noreferrer" class=footer__link-item>ASPICE / PAM<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://www.iso.org/standard/68383.html target=_blank rel="noopener noreferrer" class=footer__link-item>ISO 26262 Functional Safety<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://misra.org.uk/ target=_blank rel="noopener noreferrer" class=footer__link-item>MISRA C/C++<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>More</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://github.com/your-github-username/code-quality-management target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub Repository<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://docusaurus.io/ target=_blank rel="noopener noreferrer" class=footer__link-item>Docusaurus<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>Copyright © 2026 Code Quality Management. Built with Docusaurus.</div></div></div></footer></div></body>
